@@ -246,7 +246,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../static/css/index.css"> -->
     <script src="../static/scripts/nav.js" defer></script>
     <script src="../static/scripts/dashboard.js" defer></script>
     <link rel="stylesheet" href="../static/css/nav.css">
