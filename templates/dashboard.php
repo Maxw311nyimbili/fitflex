@@ -380,7 +380,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <tbody id="recipe-table-body">
                     <?php
                         // Prepare the SQL statement using mysqli
-                        $stmt = $conn->prepare("SELECT workout_date, exercise_name, sets, reps, duration, notes FROM Workouts WHERE user_id = ?");
+                        $stmt = $conn->prepare("SELECT workout_date, exercise_name, sets, reps, duration, notes FROM workouts WHERE user_id = ?");
                         if ($stmt === false) {
                             die("Error preparing statement: " . $conn->error);
                         }
