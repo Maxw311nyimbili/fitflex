@@ -52,8 +52,8 @@ $gym_name = '';
 if ($user_role == 'trainee') {
     $query = "SELECT gym.gym_name 
               FROM gym 
-              JOIN UsersFlex ON UsersFlex.gym_id = gym.gym_id 
-              WHERE UsersFlex.user_id = ?";
+              JOIN UsersFlex ON usersflex.gym_id = gym.gym_id 
+              WHERE usersflex.user_id = ?";
     $stmt = $conn->prepare($query);
     
     if ($stmt) {
