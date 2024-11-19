@@ -15,7 +15,7 @@ $first_name = $_SESSION['firstName'];
 $last_name = $_SESSION['lastName'];
 
 // Fetch user-specific data (weights) from Progress or another relevant table
-$sql = "SELECT weight FROM Progress WHERE user_id = ? ORDER BY date DESC LIMIT 1"; // Getting most recent weight
+$sql = "SELECT weight FROM progress WHERE user_id = ? ORDER BY date DESC LIMIT 1"; // Getting most recent weight
 $stmt = $conn->prepare($sql);
 
 // Check if the statement was prepared successfully
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($exerciseName)) {
         // Insert into `Workouts` table
         $stmt = $conn->prepare("
-            INSERT INTO Workouts (user_id, workout_date, exercise_name, sets, reps, duration, notes, created_at)
+            INSERT INTO workouts (user_id, workout_date, exercise_name, sets, reps, duration, notes, created_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, NOW())
         ");
         
@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($currentWeight !== null) {
         // Insert into `Progress` table (for weight logs)
         $stmt = $conn->prepare("
-            INSERT INTO Progress (user_id, date, weight, created_at)
+            INSERT INTO progress (user_id, date, weight, created_at)
             VALUES (?, ?, ?, NOW())
         ");
 

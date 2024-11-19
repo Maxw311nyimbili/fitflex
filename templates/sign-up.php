@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($stmt2->execute()) {
                 // If trainer, insert gym details
                 if ($role === 'trainer' && $gymName && $gymContact && $gymLocation && $servicesOffered) {
-                    $gymQuery = "INSERT INTO Gym (gym_name, gym_location, services_offered, gym_contact) VALUES (?, ?, ?, ?)";
+                    $gymQuery = "INSERT INTO gym (gym_name, gym_location, services_offered, gym_contact) VALUES (?, ?, ?, ?)";
                     $stmt3 = $conn->prepare($gymQuery);
 
                     if (!$stmt3) {
@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   <!-- Populate gyms from the database -->
                   <?php 
                   include 'db_connect.php'; 
-                  $sql = "SELECT gym_id, gym_name FROM Gym";
+                  $sql = "SELECT gym_id, gym_name FROM gym";
                   if ($result = mysqli_query($conn, $sql)) {
                       while ($row = mysqli_fetch_assoc($result)) {
                           echo '<option value="' . htmlspecialchars($row['gym_id']) . '">' . htmlspecialchars($row['gym_name']) . '</option>';
