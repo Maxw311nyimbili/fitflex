@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+.gym-name{
+    font-weight: bold;
+    font-size: 12px;
+    color: #366d81d5;
+    margin-top: 30px;
+    margin-left: 150px;
+}
+.first-section{
+    width: 70vw;
+    height: 32vh;
+    margin-left: 150px;
+    margin-top: 30px;
+    border-radius: 35px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.greetings{
+    display: flex;
+    margin-left: 45px;
+    padding-top: 20px;
+    color: #122331;
+}
+.greetings h1{
+    font-size: 25px;
+    margin-right: 50px;
+}
+.greetings h2{
+    padding-top: 15px;
+}
+.weight-loss{
+  background: #366d81d5;
+  width: 20vw;
+  height: 18vh;
+  margin-left: 40px;
+  margin-top: 10px;
+  border-radius: 17px;
+  color: white;
+}
+
+
+.weight-heading{
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.flex{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: 23px;
+}
+
+.second{
+    background: #366d818c;
+    width: 20vw;
+    height: 13vh;
+    margin-left: 100px;
+    margin-top: 15px;
+    border-radius: 17px;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+.circle-container{
+    background: #36817dc9;
+    width: 10vw;
+    height: 20vh;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 15px;
+    border-radius: 407em;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+.circle-container h1{
+    font-size: 16px;
+    padding-top: 65px;
+    text-wrap: unset;
+    text-decoration: none;
+}
+.circle-container:hover{
+    background: #36817d; 
+}
+.current-weight{
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+.actual-weight{
+    font-size: 28px;
+}
+.inner-body-container{
+    display: flex;
+}
+.btn{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #366d818c;
+    color: white;
+    margin-left: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btn-1{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #366d818c;
+    color: white;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.submit{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #4D8BA1;
+    color: white;
+    margin-left: 5px; 
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover{
+    background: #366d81de;
+}
+.btn-1:hover{
+    background: #366d81de;
+}
+.submit:hover{
+    background: #366d81de;
+}
+
+.buttons{
+    display: flex;
+}
+
+.second .flex-label, .flex-label-1{
+    margin-left: 15px;
+}
+
+/* Table Styling */
+table {
+    margin-top: 20px;
+    margin-left: 150px;
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: white;
+    color: #122331;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+ 
+  
+  table td button {
+    background-color: #366d818c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  table td button:hover {
+    background-color: #122331;
+    color: white;
+  }
+
+  /* Modal CSS */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    overflow: auto; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 1s ease-in-out;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    background-color: #366d818c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-title{
+    color: #366d818c;
+    padding-bottom: 20px;
+}
+.submit-btn{
+    border: none;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    background: #122331;
+    color: white;
+    cursor: pointer;
+}
+input{
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:#366d818c solid 1.5px;
+    border-radius: 8px;
+}
+input:focus{
+    outline: none;
+    
+}
+
+.section-1, .section-2, .section-3{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 30px;
+}
+.section-2{
+    height: 20vh;
+}
+.section-4 textarea{
+    width: 45vw;
+    margin-bottom: 20px;
+}
+form, .modal-title{
+    margin-left: 13px;
+}
+
+textarea{
+    border: #366d818c solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.section-2 textarea{
+    width: 21vw;
+    margin-bottom: 20px;
+}
+#ingredient-list{
+    height: 10vw;
+}
+#allergies{
+    height: 7vw;
+}
+
+@media screen and (max-width: 1280px){
+    .gym-name{
+        font-weight: bold;
+        color: #366d81d5;
+        margin-top: 25px;
+        margin-left: 200px;
+    }
+    .first-section{
+        width: 65vw;
+        height: 37vh;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 35px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+    .greetings{
+        display: flex;
+        margin-left: 40px;
+        padding-top: 20px;
+        color: #122331;
+    }
+    .greetings h1{
+        font-size: 40px;
+        margin-right: 20px;
+    }
+    .greetings h2{
+        padding-top: 15px;
+    }
+    .weight-loss{
+      background: #366d81d5;
+      width: 20vw;
+      height: 21vh;
+      margin-left: 40px;
+      margin-top: 10px;
+      border-radius: 17px;
+      color: white;
+    }
+    
+    
+    .weight-heading{
+        margin-left: 20px;
+        padding-top: 10px;
+    }
+    .flex{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        margin-left: 23px;
+    }
+    
+    .second{
+        background: #366d818c;
+        width: 20vw;
+        height: 13vh;
+        margin-left: 40px;
+        margin-top: 15px;
+        border-radius: 17px;
+        color: white;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    .circle-container{
+        background: #36817dc9;
+        width: 10vw;
+        height: 20vh;
+        text-align: center;
+        margin-left: 70px;
+        margin-top: 15px;
+        border-radius: 407em;
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+    .circle-container h1{
+        font-size: 16px;
+        padding-top: 65px;
+        text-wrap: unset;
+        text-decoration: none;
+    }
+    .circle-container:hover{
+        background: #36817d; 
+    }
+    .current-weight{
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+    .actual-weight{
+        font-size: 28px;
+    }
+    .inner-body-container{
+        display: flex;
+    }
+    .btn{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 45px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-1{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .submit{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #4D8BA1;
+        color: white;
+        margin-left: 5px; 
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .btn:hover{
+        background: #366d81de;
+    }
+    .btn-1:hover{
+        background: #366d81de;
+    }
+    .submit:hover{
+        background: #366d81de;
+    }
+    
+    .buttons{
+        display: flex;
+    }
+    
+    .second .flex-label, .flex-label-1{
+        margin-left: 15px;
+    }
+    
+}

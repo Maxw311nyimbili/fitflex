@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/dash.css">
+    <title>Admin</title>
+</head>
+<body>
+    <!-- user part -->
+    <main>
+        <!-- three sections -->
+        <div class="gym-name"><h1>Ashesi University Gyms</h1></div>
+        <section class="first-section">
+            <div class="greetings">
+                <h1>Welcome, Ben Carter</h1>
+            </div>
+
+            <div class="inner-body-container">
+                <!-- <div class="weight-loss">
+                    <h1 class="weight-heading">Weight Loss</h1>
+    
+                    <div class="flex">
+                        <div class="current-weight">
+                            <div class="weight-container"><p class="actual-weight">143 <span>lb</span></p></div>
+                            <div><p>Current Weight</p></div>
+                        </div>
+        
+                        <div class="starting-weight">
+                            <div class="weight-container"><p class="actual-weight">300 <span>lb</span></p></div>
+                            <div><p>Starting Weight</p></div>
+                        </div>
+                    </div>
+
+                    
+                </div> -->
+
+
+                <div class="another-container">
+                    <div class="flex second">
+                        <div class="current-weight">
+                            <div class="weight-container"><p class="actual-weight flex-label">Session</p></div>
+                            <div>
+                                <!-- This part should be auto-filled by getting the sessions from a table -->
+                                <p class="flex-label-1">Cardio Blast</p>
+                                <p class="flex-label-1">Yoga Class</p>
+                            </div>
+                        </div>
+        
+                        <div class="starting-weight">
+                            <div class="weight-container"><p class="actual-weight flex-label">Trainer</p></div>
+                            <div>
+                                <p class="flex-label-1">Ben Carter</p>
+                                <p class="flex-label-1">James Brown</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div><button onclick="" class="btn">Update gym info</button></div> 
+                        <div><button onclick="" class="btn-1">Add a class</button></div>
+                    </div>
+        
+                    
+                </div>
+
+                
+            </div>
+
+           
+        </section>
+
+         <section class="second-section">
+            <div class="user-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Trainee name</th>
+                            <th>Gender</th>
+                            <th>sessions enrolled in</th>
+                            <th>Date enrolled</th>
+                       
+                        </tr>
+                    </thead>
+                    <tbody id="recipe-table-body">
+                    <!-- <?php
+                        // Loop through the fetched recipes and display them in the table
+                        foreach ($recipes as $recipe) {
+                            echo "<tr>";
+                            echo "<td>{$recipe['food_id']}</td>";
+                            echo "<td>{$recipe['name']}</td>";
+                            echo "<td>{$recipe['fname']} {$recipe['lname']}</td>";
+                            echo "<td>{$recipe['created_at']}</td>";
+                            echo "<td>
+                                    <button class='view-btn' data-toggle='modal' data-target='#viewModal' onclick='viewRecipe({$recipe['food_id']})'>View</button>
+                                    <button class='edit-btn' data-toggle='modal' data-target='#editModal' onclick='editRecipe({$recipe['food_id']})'>Edit</button>
+                                    <button class='delete-btn' onclick='deleteRecipe({$recipe['food_id']})'>Delete</button>
+                                </td>";
+                            echo "</tr>";
+                        }
+                    ?> -->
+                    </tbody>
+                </table>
+            </div>
+         </section>
+     </main>
+
+    
+</body>
+</html>

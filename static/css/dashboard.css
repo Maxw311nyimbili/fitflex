@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+
+.banner{
+    width: 80vw;
+    height: 43vh;
+    background: linear-gradient(rgba(18, 35, 49, 0.581), rgba(18, 35, 49, 0.386)), url(../images/user-dashboard.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    border-radius: 50px;
+    margin-bottom: 40px;
+}
+
+.banner-words{
+    padding-top: 100px;
+    margin-left: 50px;
+    color: white;
+}
+.banner-words h1{
+    font-size: 45px;
+}
+.parag-container{
+    width: 40em;
+    margin-top: 20px;
+}
+.banner-words p{
+    font-size: 25px;
+    width: 35vw;
+}
+.section-2{
+    width: 79vw;
+    height: 60vh;
+    border: #D9D9D9 solid 2px;
+    margin: auto;
+    border-radius: 35px;
+    margin-bottom: 60px;
+}
+.buttons{
+    margin-left: 50px;
+    margin-top: 30px;
+    display: flex;
+}
+
+input{
+   color: white;
+   background: #4D8BA1; 
+   border: none;
+   padding: 10px 20px 10px 20px;
+   border-radius: 30px;
+   margin-right: 20px;
+   cursor: pointer;
+}
+
+.gym-signed-to{
+    margin-left: 180px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+    color: #122331a8;
+
+}
+
+.person-name{
+    color: #4D8BA1; 
+    font-size: 20px;
+    margin-left: 180px;
+}
+.content{
+    margin-top:30px;
+    margin-left: 50px;
+}
