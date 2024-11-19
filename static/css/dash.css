@@ -445,5 +445,69 @@ textarea:focus{
     .second .flex-label, .flex-label-1{
         margin-left: 15px;
     }
-        
+    input{
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:#366d818c solid 1.5px;
+    border-radius: 8px;
+}
+input:focus{
+    outline: none;
+    
+}
+
+.section-1, .section-2, .section-3{
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 30px;
+}
+.section-2{
+    height: 20vh;
+}
+.section-4 textarea{
+    width: 45vw;
+    margin-bottom: 20px;
+}
+form, .modal-title{
+    margin-left: 13px;
+}
+
+textarea{
+    border: #366d818c solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.section-2 textarea{
+    width: 21vw;
+    margin-bottom: 20px;
+}
+#ingredient-list{
+    height: 10vw;
+}
+#allergies{
+    height: 7vw;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 32%; 
+    height:75vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+}
+.submit-btn{
+    display:absolute;
+    bottom: 0;
+    margin-top:200px;
+}   
 }
