@@ -1,11 +1,9 @@
 <?php
 session_start();
 require 'db_connect.php'; // Assuming you have a 'db_connect.php' file for MySQL connection
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 // Redirect to login if not authenticated
 if (!isset($_SESSION['user_id'])) {
