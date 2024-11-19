@@ -25,16 +25,15 @@ if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
 
     // Check if pictures were found and return the response
     if ($pictures) {
-        // echo json_encode(['success' => true, 'pictures' => $pictures]);
+        echo json_encode(['success' => true, 'pictures' => $pictures]);
     } else {
-        // echo json_encode(['success' => false, 'message' => 'No pictures found']);
+        echo json_encode(['success' => false, 'message' => 'No pictures found']);
     }
 
     // Close the statement
     $stmt->close();
 } else {
-    // echo json_encode(['success' => false, 'message' => 'Invalid or missing user_id']);
+    echo json_encode(['success' => false, 'message' => 'Invalid or missing user_id']);
 }
-
 
 ?>

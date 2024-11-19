@@ -33,9 +33,9 @@ function closeImageModal() {
 function loadImages(userId) {
     const imageContainer = document.getElementById("imageContainer");
     imageContainer.innerHTML = ''; // Clear previous images
-    
+
     // Show a loading message or spinner while fetching images
-    imageContainer.innerHTML = ' ';
+    imageContainer.innerHTML = '<p>Loading images...</p>';
 
     fetch(`../templates/view_progress_pictures.php?user_id=${userId}`)
         .then(response => {
@@ -65,6 +65,13 @@ function loadImages(userId) {
         })
         .catch(error => {
             console.error('Error:', error);
-            imageContainer.innerHTML = '<p>Failed to load images. Please try again later.</p>';
+            imageContainer.innerHTML = '<p>Failed to load images. Please check your connection or try again later.</p>';
+            // Optionally, you can add a retry button
+            const retryButton = document.createElement('button');
+            retryButton.innerText = 'Retry';
+            retryButton.onclick = () => loadImages(userId);
+            imageContainer.appendChild(retryButton);
         });
+        
 }
+
