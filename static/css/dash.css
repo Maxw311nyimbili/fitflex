@@ -306,11 +306,11 @@ textarea:focus{
         font-weight: bold;
         color: #366d81d5;
         margin-top: 25px;
-        margin-left: 200px;
+        margin-left: 100px;
     }
     .first-section{
-        width: 65vw;
-        height: 37vh;
+        width: 85vw;
+        height: 35vh;
         margin: auto;
         margin-top: 40px;
         border-radius: 35px;
@@ -319,12 +319,12 @@ textarea:focus{
     
     .greetings{
         display: flex;
-        margin-left: 40px;
-        padding-top: 20px;
+        margin-left: 73px;
+        padding-top: 23px;
         color: #122331;
     }
     .greetings h1{
-        font-size: 40px;
+        font-size: 25px;
         margin-right: 20px;
     }
     .greetings h2{
@@ -332,9 +332,9 @@ textarea:focus{
     }
     .weight-loss{
       background: #366d81d5;
-      width: 20vw;
+      width: 25vw;
       height: 21vh;
-      margin-left: 40px;
+      margin-left: 70px;
       margin-top: 10px;
       border-radius: 17px;
       color: white;
@@ -354,11 +354,13 @@ textarea:focus{
     
     .second{
         background: #366d818c;
-        width: 20vw;
+        width: 22vw;
         height: 13vh;
-        margin-left: 40px;
+        margin-left: 90px;
         margin-top: 15px;
         border-radius: 17px;
+        padding-top:23px;
+        padding-left:15px;
         color: white;
     }
     
@@ -367,10 +369,10 @@ textarea:focus{
     }
     .circle-container{
         background: #36817dc9;
-        width: 10vw;
+        width: 13vw;
         height: 20vh;
         text-align: center;
-        margin-left: 70px;
+        margin-left: 90px;
         margin-top: 15px;
         border-radius: 407em;
         color: white;
@@ -390,7 +392,7 @@ textarea:focus{
         margin-bottom: 10px;
     }
     .actual-weight{
-        font-size: 28px;
+        font-size: 21px;
     }
     .inner-body-container{
         display: flex;
@@ -401,7 +403,7 @@ textarea:focus{
         border-radius: 10px;
         background: #366d818c;
         color: white;
-        margin-left: 45px;
+        margin-left: 95px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
@@ -443,5 +445,5 @@ textarea:focus{
     .second .flex-label, .flex-label-1{
         margin-left: 15px;
     }
-    
+        
 }
