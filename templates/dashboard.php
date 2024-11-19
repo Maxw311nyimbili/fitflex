@@ -440,6 +440,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                     </div>
 
+                    <br>
+                    <br>
                     <div class="form-btns">
                         <button type="submit" id="submit-btn" class="submit">Submit</button>
                     </div>
@@ -467,6 +469,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     </div>
 
+                 
                     <div class="form-btns">
                         <button type="submit" id="submit-btn" class="submit">Submit</button>
                     </div>
