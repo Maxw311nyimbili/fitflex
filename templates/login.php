@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($email) || empty($password)) {
         $error = "Please fill in all fields.";
     } else {
-        $stmt = $conn->prepare("SELECT * FROM UsersFlex WHERE email = ?");
+        $stmt = $conn->prepare("SELECT * FROM usersflex WHERE email = ?");
         $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Check if the email already exists
-        $emailQuery = "SELECT email FROM UsersFlex WHERE email = ?";
+        $emailQuery = "SELECT email FROM usersflex WHERE email = ?";
         $stmt = $conn->prepare($emailQuery);
         if (!$stmt) {
             die("Preparation failed: " . $conn->error);
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Email already registered.";
         } else {
             // Insert user into Users table
-            $query = "INSERT INTO UsersFlex (firstName, lastName, email, password, role, gym_id, height, weight, age, gender) 
+            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id, height, weight, age, gender) 
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt2 = $conn->prepare($query);
 

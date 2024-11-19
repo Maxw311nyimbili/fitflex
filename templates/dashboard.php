@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['user_id'])) {
 
 // Fetch Starting Weight
 $starting_weight = 'N/A';
-$sql_starting = "SELECT weight FROM UsersFlex WHERE user_id = ? ORDER BY join_date ASC LIMIT 1";
+$sql_starting = "SELECT weight FROM usersflex WHERE user_id = ? ORDER BY join_date ASC LIMIT 1";
 $stmt_starting = $conn->prepare($sql_starting);
 if ($stmt_starting) {
     $stmt_starting->bind_param("i", $user_id);
