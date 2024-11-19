@@ -4,6 +4,12 @@ ini_set('display_errors', 1);
 // view_progress_pictures.php
 require 'db_connect.php';
 
+// Clean the output buffer
+ob_clean(); 
+
+// Ensure the response is treated as JSON
+header('Content-Type: application/json');
+
 if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
 
