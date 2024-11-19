@@ -155,7 +155,7 @@ if ($stmt_starting) {
 
 // Fetch Current Weight
 $current_weight = 'N/A';
-$sql_current = "SELECT weight FROM Progress WHERE user_id = ? ORDER BY date DESC LIMIT 1";
+$sql_current = "SELECT weight FROM progress WHERE user_id = ? ORDER BY date DESC LIMIT 1";
 $stmt_current = $conn->prepare($sql_current);
 if ($stmt_current) {
     $stmt_current->bind_param("i", $user_id);
