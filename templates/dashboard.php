@@ -340,7 +340,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="starting-weight">
                             <div class="weight-container"><p class="actual-weight flex-label">Trainer</p></div>
-                            <div><p class="flex-label-1"><?= htmlspecialchars($first_name) . ' ' . htmlspecialchars($last_name); ?></p></div>
+                            <div><p class="flex-label-1">Jonathan Brown</p></div>
                         </div>
                     </div>
 
