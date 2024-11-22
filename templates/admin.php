@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             max-width: 1000px;
             margin: 0 auto;
@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
+        } */
         .tabs {
             display: flex;
             cursor: pointer;
