@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require '../templates/db_connection.php';
+require '../templates/db_connect.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Check if the email is already in use
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM usersflex WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->bind_result($count);
@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare the SQL query to insert the new user
-    $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, gender, height, weight, age, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->bind_param("sssssiiis", $firstName, $lastName, $email, $hashedPassword, $gendar, $height, $weight, $age, $role);
+    $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, role) VALUES (?, ?, ?, ?, ?)");
+    $query->bind_param("sssss", $firstName, $lastName, $email, $hashedPassword, $role);
 
     // Execute the query and check if it was successful
     if ($query->execute()) {
