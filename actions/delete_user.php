@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     
     if (isset($_DELETE['id'])) {
         $userId = intval($_DELETE['id']);
+        echo . $userId;
 
         $stmt = $conn->prepare("DELETE FROM usersflex WHERE user_id = ?");
         
