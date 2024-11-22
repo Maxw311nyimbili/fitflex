@@ -742,7 +742,7 @@ echo "<div class='user-info'>Welcome, " .
                     <br>
                     <br>
 
-                    <button type="submit" class="submit-btn">Add User</button>
+                    <button type="submit" class="btn-1">Add User</button>
                 </form>
                 <p id="addErrorMessage" style="color: red; display: none;">Please fill in all required fields with valid information.</p>
             </div>
@@ -785,7 +785,7 @@ echo "<div class='user-info'>Welcome, " .
                     <br>
                     
 
-                    <button type="button" onclick="updateUser()">Update</button>
+                    <button type="button" class="btn-1" onclick="updateUser()">Update</button>
                 </form>
           </div>
         </div>
