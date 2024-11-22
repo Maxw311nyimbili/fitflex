@@ -15,13 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
-    $gender = htmlspecialchars($_POST['gender']);
-    $weight = htmlspecialchars($_POST['weight']);
-    $age = htmlspecialchars($_POST['age']);
     $role = htmlspecialchars($_POST['role']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
     $password = 'fitflex1234';  // Default password
-    $role = intval($_POST['role']); 
+
 
     // Hash the password before storing it (for security)
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
