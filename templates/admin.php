@@ -224,7 +224,7 @@ echo "<div class='user-info'>Welcome, " .
             } else {
                 echo "<p>No gyms found.</p>";
             }
-        } elseif ($_SESSION['role'] == 'trainee') {
+        } elseif ($_SESSION['role'] == 'trainer') {
             // Show user's gym
             $stmt = $conn->prepare("SELECT g.* FROM Gym g 
                                     JOIN usersflex u ON g.gym_id = u.gym_id 
