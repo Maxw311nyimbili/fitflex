@@ -10,14 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     
     if (isset($_DELETE['id'])) {
         $userId = intval($_DELETE['id']);
-        echo . $userId;
 
         $stmt = $conn->prepare("DELETE FROM usersflex WHERE user_id = ?");
         
         if ($stmt) {
-            $stmt->bind_param("i", $userId); // Bind the user ID parameter
+            $stmt->bind_param("i", $userId);
 
-            // Execute the query and check if it was successful
             if ($stmt->execute()) {
                 echo json_encode(['success' => true, 'message' => 'User deleted successfully']);
             } else {
@@ -32,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         echo json_encode(['success' => false, 'message' => 'User ID is required']);
     }
 } else {
-    // Invalid request method, return JSON error
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);
 }
 ?>
-

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = intval($_POST['id']);  // Ensure ID is an integer
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);  // Sanitize the email
     $name = $_POST['name'];
-    $role = $POST['role']
+    $role = $_POST['role'];  // Corrected line
 
     // Split the name into first and last names
     $splitName = explode(" ", $name, 2); // Assumes "fname lname"
@@ -48,5 +48,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo json_encode(['success' => false, 'message' => 'Invalid request method']);
 }
-
 ?>
