@@ -375,7 +375,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
     echo "<a href='login.php' class='login-button'>Login</a></div>";
     exit;
 }
-echo "<div class='body'>Welcome, " .
+echo "<div class='user-info'>Welcome, " .
     htmlspecialchars($_SESSION['firstName'] . " " . $_SESSION['lastName']) .
     " | Role: " . htmlspecialchars(str_replace("_", " ", ucwords($_SESSION['role']))) .
     "</div>";
