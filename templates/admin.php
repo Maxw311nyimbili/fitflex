@@ -639,6 +639,7 @@ echo "<div class='user-info'>Welcome, " .
     </div>
     <div class="tab-content">
         <h2>All Users</h2>
+
         <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
@@ -671,7 +672,10 @@ echo "<div class='user-info'>Welcome, " .
                     }
                     echo "</table>";
 
-                    echo . "<button onclick='editUser(" . htmlspecialchars($row['user_id']) . ")'>Edit</button>";
+                    echo "<button id='addUserBtn' class='submit-btn' onclick='openUserModal()'>Add User</button>";
+            
+
+                  
                 }
                 else{
                     echo "<h3 style='text-align: center;'>You have no access</h3>";
