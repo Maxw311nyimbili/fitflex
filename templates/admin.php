@@ -359,7 +359,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </header>
 
 <?php
-
+require 'db_connect.php'; 
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
     echo "<div class='error-message'><p>Please log in to access the system.</p>";
@@ -641,6 +641,8 @@ echo "<div class='user-info'>Welcome, " .
         <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
+        
+
         try{
 
             if ($_SESSION['role'] == 'super_admin'){
