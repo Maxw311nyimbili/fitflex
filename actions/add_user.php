@@ -15,10 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
+    $height = htmlspecialchars($_POST['gender']);
+    $weight = htmlspecialchars($_POST['weight']);
     $role = htmlspecialchars($_POST['role']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
     $password = 'fitflex1234';  // Default password
-
 
     // Hash the password before storing it (for security)
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -37,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare the SQL query to insert the new user
-    $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, role) VALUES (?, ?, ?, ?, ?)");
-    $query->bind_param("sssss", $firstName, $lastName, $email, $hashedPassword, $role);
+    $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, height, weight, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $query->bind_param("sssssiiis", $firstName, $lastName, $email, $hashedPassword, $height, $weight, $role);
 
     // Execute the query and check if it was successful
     if ($query->execute()) {
