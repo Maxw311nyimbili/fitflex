@@ -414,7 +414,7 @@ echo "<div class='user-info'>Welcome, " .
                     <br>
                     
 
-                    <button type="button" class="btn" onclick="updateUser()">Update</button>
+                    <button type="button" onclick="updateUser()">Update</button>
                 </form>
           </div>
         </div>
