@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
-    $height = htmlspecialchars($_POST['gender']);
+    $height = htmlspecialchars($_POST['height']);
     $weight = htmlspecialchars($_POST['weight']);
     $role = htmlspecialchars($_POST['role']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepare the SQL query to insert the new user
     $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, height, weight, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $query->bind_param("ssssiis", $firstName, $lastName, $email, $hashedPassword, $height, $weight, $role);
+    $query->bind_param("ssssdds", $firstName, $lastName, $email, $hashedPassword, $height, $weight, $role);
 
     // Execute the query and check if it was successful
     if ($query->execute()) {
