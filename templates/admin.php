@@ -773,7 +773,7 @@ echo "<div class='user-info'>Welcome, " .
                 <span class="close" id="closeEntryModal" onclick="closeEntryModal()">&times;</span>
 
                 <h2 class="modal-title">Add New Entry</h2>
-                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="dashboard.php">
+                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="admin.php">
                     <!-- User Form Fields -->
                     <div class="section-1">
                         <div><input type="text" name="exercise-name" id="recipe-name" placeholder="Enter exercise name" required></div>
@@ -810,7 +810,7 @@ echo "<div class='user-info'>Welcome, " .
                 <span class="close" id="closeModal"  onclick="closeWeightModal()">&times;</span> <!-- Close button -->
 
                 <h2 class="modal-title">Update Weight</h2>
-                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="dashboard.php">
+                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="admin.php">
                     <!-- User Form Fields -->
                     <div class="section-1">
                         <div><input type="number" name="current-weight" id="current-weight" placeholder="Current weight" required></div>
