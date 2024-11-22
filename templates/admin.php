@@ -671,7 +671,7 @@ echo "<div class='user-info'>Welcome, " .
                     }
                     echo "</table>";
 
-                    echo . "<button onclick='editUser(" . htmlspecialchars($row['user_id']) . ")'>Edit</button>"
+                    echo . "<button onclick='editUser(" . htmlspecialchars($row['user_id']) . ")'>Edit</button>";
                 }
                 else{
                     echo "<h3 style='text-align: center;'>You have no access</h3>";
