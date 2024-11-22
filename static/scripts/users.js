@@ -29,7 +29,7 @@ function updateUser() {
     const userId = document.getElementById('editUserId').value;
     const email = document.getElementById('editEmail').value;
     const name = document.getElementById('editUsername').value;
-    const role = document.getElementById('newRole').value;
+    const role = document.getElementById('newRole-1').value;
 
     console.log('Updating User:', { userId, email, name, role }); // Debugging
 
