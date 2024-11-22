@@ -4,6 +4,7 @@ require '../templates/db_connect.php';
 
 // Ensure the response is JSON
 header('Content-Type: application/json');
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
