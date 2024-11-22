@@ -373,7 +373,8 @@ echo "<div class='user-info'>Welcome, " .
 ?>
 
 <!-- START -->
- <?php if ($user_role == "trainee")?>
+<?php if ($user_role == "trainee"): ?>
+
     <!-- User Mode -->
     <div class="gym-name"><h1><?= htmlspecialchars($gym_name)?></h1></div>
         <section class="first-section">
