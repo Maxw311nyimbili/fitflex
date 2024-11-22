@@ -10,7 +10,7 @@ function editUser(userId) {
                 document.getElementById('editEmail').value = data.user.email;
 
                 // Dynamically set the role in the dropdown
-                const roleDropdown = document.getElementById('newRole');
+                const roleDropdown = document.getElementById('newRole-1');
                 roleDropdown.value = data.user.role; // Ensure `role` is correctly retrieved
                 
                 console.log('Role:', data.user.role);
