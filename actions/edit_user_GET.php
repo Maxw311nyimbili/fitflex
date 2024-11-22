@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require '../templates/db_connection.php';
+require '../templates/db_connect.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
