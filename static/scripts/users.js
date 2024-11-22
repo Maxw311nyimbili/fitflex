@@ -1,4 +1,3 @@
-// EDIT FUNCTION
 function editUser(userId) {
     // Fetch user data using GET request
     fetch(`../actions/edit_user_GET.php?id=${userId}`)
@@ -9,7 +8,11 @@ function editUser(userId) {
                 document.getElementById('editUserId').value = data.user.user_id;
                 document.getElementById('editUsername').value = data.user.name;
                 document.getElementById('editEmail').value = data.user.email;
-                
+
+                // Dynamically set the role in the dropdown
+                const roleDropdown = document.getElementById('newRole');
+                roleDropdown.value = data.user.role; // Ensure `role` is correctly retrieved
+
                 // Show the modal
                 document.getElementById('editUserModal').style.display = 'block';
             } else {
@@ -23,17 +26,20 @@ function editUser(userId) {
 }
 
 
+
 function updateUser() {
     const userId = document.getElementById('editUserId').value;
     const email = document.getElementById('editEmail').value;
     const name = document.getElementById('editUsername').value;
     const role = document.getElementById('newRole').value;
 
+    console.log('Updating User:', { userId, email, name, role }); // Debugging
+
     // Send updated data using POST request
     fetch('../actions/edit_user_POST.php', {
-        method: 'POST',  // POST method to send data
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',  // Form-urlencoded content type
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
             'id': userId,
@@ -45,20 +51,17 @@ function updateUser() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert(data.message);  // Show success message
-            closeModal();  // Close the modal
-            location.reload();
+            alert(data.message); // Show success message
+            closeEditModal();   // Close the modal
+            location.reload();  // Reload to reflect changes
         } else {
-            alert('Error: ' + data.message);  // Show error message
+            alert('Error: ' + data.message); // Show error message
         }
     })
     .catch(error => {
         console.error('Error:', error);
         alert('An error occurred while updating the user.');
     });
-}
-function closeEditModal(){
-    document.getElementById("editUserModal").style.display = 'none';
 }
 
 
