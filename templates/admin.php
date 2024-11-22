@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
-        .body{
+        .user-info{
             font-family: Arial, sans-serif;
             max-width: 1000px;
             margin: 0 auto;
