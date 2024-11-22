@@ -405,7 +405,6 @@ echo "<div class='user-info'>Welcome, " .
                     <div><input type="email" id="editEmail" name="email"></div> 
 
                     <label for="editEmail">role</label>
-                    <label for="newRole">Role:</label>
                     <select id="newRole" name="role" required>
                         <option value="super_admin">Admin</option>
                         <option value="trainer">Trainer</option>

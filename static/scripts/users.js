@@ -12,6 +12,8 @@ function editUser(userId) {
                 // Dynamically set the role in the dropdown
                 const roleDropdown = document.getElementById('newRole');
                 roleDropdown.value = data.user.role; // Ensure `role` is correctly retrieved
+                
+                console.log('Role:', data.user.role);
 
                 // Show the modal
                 document.getElementById('editUserModal').style.display = 'block';
