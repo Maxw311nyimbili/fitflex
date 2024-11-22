@@ -414,8 +414,7 @@ echo "<div class='user-info'>Welcome, " .
             </section>
 
 <?php else: ?>
-    <div class="center">
-        <div class="tabs">
+    <div class="tabs">
             <div class="tab active" onclick="showTab(0)">Profile</div>
             <div class="tab" onclick="showTab(1)">Gyms</div>
             <div class="tab" onclick="showTab(2)">Messages</div>
@@ -617,8 +616,6 @@ echo "<div class='user-info'>Welcome, " .
             }
             ?>
         </div>
-
-    </div>
 
     
 <?php endif; ?>
