@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = intval($_POST['id']);  // Ensure ID is an integer
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);  // Sanitize the email
     $name = $_POST['name'];
+    $role = $POST['role']
 
     // Split the name into first and last names
     $splitName = explode(" ", $name, 2); // Assumes "fname lname"
@@ -18,12 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lname = isset($splitName[1]) ? $splitName[1] : '';  // If there's no last name, assign an empty string
 
     // Prepare the SQL query to update the user data
-    $query = "UPDATE users SET email = ?, fname = ?, lname = ? WHERE user_id = ?";
+    $query = "UPDATE usersflex SET role = ?, email = ?, firstName = ?, lastName = ? WHERE user_id = ?";
 
     // Prepare the statement
     if ($stmt = $conn->prepare($query)) {
         // Bind the parameters
-        $stmt->bind_param("sssi", $email, $fname, $lname, $userId);  // 'sssi' means string, string, string, integer
+        $stmt->bind_param("ssssi", $role, $email, $fname, $lname, $userId);  
 
         // Execute the statement
         if ($stmt->execute()) {

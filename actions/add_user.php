@@ -10,9 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); // Sanitize email
-    $password = 'kitchen1234';  // Default password
-    $role = intval($_POST['role']); // Convert role to integer
+    $gender = htmlspecialchars($_POST['gender']);
+    $weight = htmlspecialchars($_POST['weight']);
+    $age = htmlspecialchars($_POST['age']);
+    $role = htmlspecialchars($_POST['role']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
+    $password = 'fitflex1234';  // Default password
+    $role = intval($_POST['role']); 
 
     // Hash the password before storing it (for security)
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -31,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Prepare the SQL query to insert the new user
-    $query = $conn->prepare("INSERT INTO users (fname, lname, email, password, role) VALUES (?, ?, ?, ?, ?)");
-    $query->bind_param("ssssi", $firstName, $lastName, $email, $hashedPassword, $role);
+    $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, gender, height, weight, age, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $query->bind_param("sssssiiis", $firstName, $lastName, $email, $hashedPassword, $gendar, $height, $weight, $age, $role);
 
     // Execute the query and check if it was successful
     if ($query->execute()) {

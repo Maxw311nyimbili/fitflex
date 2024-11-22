@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     if (isset($_DELETE['id'])) {
         $userId = intval($_DELETE['id']);
 
-        $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
+        $stmt = $conn->prepare("DELETE FROM usersflex WHERE user_id = ?");
         
         if ($stmt) {
             $stmt->bind_param("i", $userId); // Bind the user ID parameter

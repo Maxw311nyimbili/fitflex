@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $userId = intval($_GET['id']);  // Sanitize the ID
 
         // Prepare the query to fetch the user data
-        $query = "SELECT user_id, CONCAT(fname, ' ', lname) AS name, email FROM users WHERE user_id = ?";
+        $query = "SELECT user_id, CONCAT(firstName, ' ', lastName) AS name, email, role FROM usersflex WHERE user_id = ?";
 
         // Prepare the statement
         if ($stmt = $conn->prepare($query)) {
