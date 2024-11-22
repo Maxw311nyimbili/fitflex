@@ -246,6 +246,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
+        .user-info{
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
         .tabs {
             display: flex;
             cursor: pointer;
