@@ -451,6 +451,7 @@ table, th, td {
         padding-left:15px;
         color: white;
     }
+    
     a{
         text-decoration: none;
     }
@@ -533,7 +534,7 @@ table, th, td {
         margin-left: 15px;
     }
     input{
-    width: 300px;
+    width: 350px;
     padding: 10px;
     margin-bottom: 10px;
     border:#366d818c solid 1.5px;
@@ -586,8 +587,8 @@ textarea:focus{
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; 
-    max-height:90vh;
+    width: 32%; 
+    height:77vh;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 1s ease-in-out;
@@ -597,6 +598,549 @@ textarea:focus{
     bottom: 0;
     margin-top:200px;
 }   
+    /* Table Styling */
+table {
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: white;
+    color: #122331;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+ 
+  
+  table td button {
+    background-color: #366d818c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  table td button:hover {
+    background-color: #122331;
+    color: white;
+  }
+
 }
 
 
+@media screen and (max-width: 1024px){
+    .gym-name{
+        font-weight: bold;
+        color: #366d81d5;
+        margin-top: 20px;
+        margin-left: 100px;
+    }
+    .first-section{
+        width: 85vw;
+        height: 40vh;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 35px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+    .greetings{
+        display: flex;
+        margin-left: 43px;
+        padding-top: 20px;
+        color: #122331;
+    }
+    .greetings h1{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .greetings h2{
+        padding-top: 15px;
+    }
+    .weight-loss{
+      background: #366d81d5;
+      width: 25vw;
+      height: 21vh;
+      margin-left: 40px;
+      margin-top: 15px;
+      border-radius: 17px;
+      color: white;
+    }
+    
+    
+    .weight-heading{
+        margin-left: 20px;
+        padding-top: 10px;
+    }
+    .flex{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        margin-left: 23px;
+    }
+    
+    .second{
+        background: #366d818c;
+        width: 22vw;
+        height: 16vh;
+        margin-left: 60px;
+        margin-top: 15px;
+        border-radius: 17px;
+        padding-top:23px;
+        padding-left:15px;
+        color: white;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    .circle-container{
+        background: #36817dc9;
+        width: 14vw;
+        height: 25vh;
+        text-align: center;
+        margin-left: 30px;
+        margin-top: 1px;
+        border-radius: 407em;
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+    .circle-container h1{
+        font-size: 15px;
+        padding-top: 60px;
+        text-wrap: unset;
+        text-decoration: none;
+    }
+    .circle-container:hover{
+        background: #36817d; 
+    }
+    .current-weight{
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+    .actual-weight{
+        font-size: 15px;
+    }
+    .inner-body-container{
+        display: flex;
+    }
+    .btn{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-1{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .submit{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #4D8BA1;
+        color: white;
+        margin-left: 5px; 
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .btn:hover{
+        background: #366d81de;
+    }
+    .btn-1:hover{
+        background: #366d81de;
+    }
+    .submit:hover{
+        background: #366d81de;
+    }
+    
+    .buttons{
+        display: flex;
+    }
+    
+    .second .flex-label, .flex-label-1{
+        margin-left: 15px;
+    }
+    input{
+    width: 350px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:#366d818c solid 1.5px;
+    border-radius: 8px;
+}
+input:focus{
+    outline: none;
+    
+}
+
+.section-1, .section-2, .section-3{
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 30px;
+}
+.section-2{
+    height: 20vh;
+}
+.section-4 textarea{
+    width: 45vw;
+    margin-bottom: 20px;
+}
+form, .modal-title{
+    margin-left: 13px;
+}
+
+textarea{
+    border: #366d818c solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.section-2 textarea{
+    width: 21vw;
+    margin-bottom: 20px;
+}
+#ingredient-list{
+    height: 10vw;
+}
+#allergies{
+    height: 7vw;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 42%; 
+    height:99vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+}
+.submit-btn{
+    display:absolute;
+    bottom: 0;
+    margin-top:270px;
+}   
+    /* Table Styling */
+table {
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 60%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: white;
+    color: #122331;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+ 
+  
+  table td button {
+    background-color: #366d818c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  table td button:hover {
+    background-color: #122331;
+    color: white;
+  }
+
+}
+
+@media screen and (max-width: 700px){
+    .gym-name{
+        font-weight: bold;
+        color: #366d81d5;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+    .first-section{
+        width: 85vw;
+        height: 80vh;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 35px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+    .greetings{
+        display: flex;
+        margin-left: 43px;
+        padding-top: 20px;
+        color: #122331;
+    }
+    .greetings h1{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .greetings h2{
+        padding-top: 15px;
+    }
+    .weight-loss{
+      background: #366d81d5;
+      width: 65vw;
+      height: 21vh;
+      margin-left: 40px;
+      margin-top: 15px;
+      border-radius: 17px;
+      color: white;
+    }
+    
+    
+    .weight-heading{
+        margin-left: 20px;
+        padding-top: 10px;
+    }
+    .flex{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        margin-left: 23px;
+    }
+    
+    .second{
+        background: #366d818c;
+        width: 63vw;
+        height: 16vh;
+        margin-left: 40px;
+        margin-top: 35px;
+        border-radius: 17px;
+        padding-top:23px;
+        padding-left:15px;
+        color: white;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    .circle-container{
+        background: #36817dc9;
+        width: 37vw;
+        height: 18vh;
+        text-align: center;
+        margin-left: 90px;
+        margin-top: 30px;
+        border-radius: 407em;
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
+    .circle-container h1{
+        font-size: 15px;
+        padding-top: 60px;
+        text-wrap: unset;
+        text-decoration: none;
+    }
+    .circle-container:hover{
+        background: #36817d; 
+    }
+    .current-weight{
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+    .actual-weight{
+        font-size: 15px;
+    }
+    .inner-body-container{
+        display: block;
+    }
+    .btn{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-1{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #366d818c;
+        color: white;
+        margin-left: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .submit{
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        background: #4D8BA1;
+        color: white;
+        margin-left: 5px; 
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .btn:hover{
+        background: #366d81de;
+    }
+    .btn-1:hover{
+        background: #366d81de;
+    }
+    .submit:hover{
+        background: #366d81de;
+    }
+    
+    .buttons{
+        display: flex;
+    }
+    
+    .second .flex-label, .flex-label-1{
+        margin-left: 15px;
+    }
+    input{
+    width: 260px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:#366d818c solid 1.5px;
+    border-radius: 8px;
+}
+input:focus{
+    outline: none;
+    
+}
+
+.section-1, .section-2, .section-3{
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-bottom: 30px;
+}
+.section-2{
+    height: 20vh;
+}
+.section-4 textarea{
+    width: 45vw;
+    margin-bottom: 20px;
+}
+form, .modal-title{
+    margin-left: 13px;
+}
+
+textarea{
+    border: #366d818c solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.section-2 textarea{
+    width: 65vw;
+    height: 40vh;
+    margin-bottom: 20px;
+}
+#ingredient-list{
+    height: 10vw;
+}
+#allergies{
+    height: 7vw;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 72%; 
+    height:79vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease-in-out;
+}
+.submit-btn{
+    display:absolute;
+    bottom: 0;
+    margin-top:270px;
+}   
+    /* Table Styling */
+table {
+    margin-top: 50px;
+    margin-left: 0px;
+    width: 25%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: white;
+    color: #122331;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  table td button {
+    background-color: #366d818c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  table td button:hover {
+    background-color: #122331;
+    color: white;
+  }
+
+}

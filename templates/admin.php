@@ -385,7 +385,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="flex">
                         <div class="current-weight">
                             <div class="weight-container">
-                                <p class="actual-weight"><?= htmlspecialchars($current_weight); ?>Kg<span>lb</span></p>
+                                <p class="actual-weight"><?= htmlspecialchars($current_weight); ?><span>Kg</span></p>
                             </div>
                             <div><p>Current Weight</p></div>
                         </div>
