@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
-        .user-info{
+        .body{
             font-family: Arial, sans-serif;
             max-width: 1000px;
             margin: 0 auto;
@@ -375,7 +375,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
     echo "<a href='login.php' class='login-button'>Login</a></div>";
     exit;
 }
-echo "<div class='user-info'>Welcome, " .
+echo "<div class='body'>Welcome, " .
     htmlspecialchars($_SESSION['firstName'] . " " . $_SESSION['lastName']) .
     " | Role: " . htmlspecialchars(str_replace("_", " ", ucwords($_SESSION['role']))) .
     "</div>";
@@ -397,14 +397,14 @@ echo "<div class='user-info'>Welcome, " .
                     <div class="flex">
                         <div class="current-weight">
                             <div class="weight-container">
-                                <p class="actual-weight"><?= htmlspecialchars($current_weight); ?> <span>lb</span></p>
+                                <p class="actual-weight"><?= htmlspecialchars($current_weight); ?>Kg<span>lb</span></p>
                             </div>
                             <div><p>Current Weight</p></div>
                         </div>
 
                         <div class="starting-weight">
                             <div class="weight-container">
-                                <p class="actual-weight"><?= htmlspecialchars($starting_weight); ?> <span>lb</span></p>
+                                <p class="actual-weight"><?= htmlspecialchars($starting_weight); ?>Kg<span>lb</span></p>
                             </div>
                             <div><p>Starting Weight</p></div>
                         </div>
