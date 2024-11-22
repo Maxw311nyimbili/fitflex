@@ -18,12 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmPassword = htmlspecialchars(trim($_POST['confirmPassword']));
     $role = htmlspecialchars(trim($_POST['role']));
 
-    // Additional fields
-    $gymPreferred = isset($_POST['gymPreferred']) ? (int) $_POST['gymPreferred'] : null;
-    $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
-    $weight = isset($_POST['weight']) ? htmlspecialchars(trim($_POST['weight'])) : null;
-    $age = isset($_POST['age']) ? htmlspecialchars(trim($_POST['age'])) : null;
-    $gender = isset($_POST['gender']) ? htmlspecialchars(trim($_POST['gender'])) : null;
 
     // For trainers, capture gym details
     $gymName = isset($_POST['gymName']) ? htmlspecialchars(trim($_POST['gymName'])) : null;
@@ -50,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Email already registered.";
         } else {
             // Insert user into Users table
-            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id, height, weight, age, gender) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id, ) 
+                      VALUES (?, ?, ?, ?, ?, ?)";
             $stmt2 = $conn->prepare($query);
 
             if (!$stmt2) {
@@ -60,17 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $gymIdToInsert = ($role == 'trainee') ? $gymPreferred : null;
 
-            $stmt2->bind_param("sssssiiiis",
+            $stmt2->bind_param("sssssi",
                 $firstName, 
                 $lastName, 
                 $email, 
                 $hashedPassword, 
                 $role, 
                 $gymIdToInsert, 
-                $height, 
-                $weight, 
-                $age,
-                $gender
             );
 
             if ($stmt2->execute()) {
@@ -90,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 // Redirect on successful registration
-                header('Location: login.php');
+                header('Location: intermediate.php');
                 exit();
             } else {
                 $error = "Failed to register user. Please try again.";
@@ -152,13 +142,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div><input type="password" name="password" placeholder="Password" required class="input_area"></div>
                 <div><input type="password" name="confirmPassword" placeholder="Confirm Password" required class="input_area"></div>
                 
-
-                <!-- New Fields for Height, Weight and Age -->
-                <div><input type="number" name="height" placeholder="Height (cm)" required min="0" class="input_area"></div>
-                <div><input type="number" name="weight" placeholder="Weight (kg)" required min="0" class="input_area"></div>
-                <div><input type="number" name="age" placeholder="Age (years)" required min="0" class="input_area"></div>
-                
-
                 <!-- Gender Selection -->
                 <div>
                     <select name="gender" required class='input_area'>
