@@ -319,7 +319,7 @@ echo "<div class='user-info'>Welcome, " .
                     echo "<td>" . $row['height'] . "</td>";
                     echo "<td>" . $row['weight'] . "</td>";
                     echo "<td>" . $row['role'] . "</td>";
-                    echo "<td>" . <button onclick='viewUser({$row['user_id']})'>View</button> . <button onclick='editUser({$row['user_id']})'>Edit</button> . <button onclick='deleteUser({$row['user_id']})'>Delete</button> "</td>";
+                    //echo "<td>" . <button onclick='viewUser({$row['user_id']})'>View</button> . <button onclick='editUser({$row['user_id']})'>Edit</button> . <button onclick='deleteUser({$row['user_id']})'>Delete</button> "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
