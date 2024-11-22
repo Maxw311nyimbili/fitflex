@@ -107,8 +107,8 @@ function addUser(event) {
     const email = document.getElementById('newEmail').value;
     const password = document.getElementById('newPassword').value;  // Default password
     const role = document.getElementById('newRole').value;
-    const height = document.getElementById('height').value;
-    const weight = document.getElementById('weight').value;
+    const height = document.getElementById('newHeight').value;
+    const weight = document.getElementById('newWeight').value;
 
     // Validate inputs
     if (!firstName || !lastName || !email || !role ||isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
@@ -128,8 +128,8 @@ function addUser(event) {
             'email': email,
             'password': password,
             'role': role,
-            'height':height,
-            'weight':weight
+            'height': height,
+            'weight': weight
         })
     })
     .then(response => response.json())
