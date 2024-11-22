@@ -1,7 +1,7 @@
 // EDIT FUNCTION
 function editUser(userId) {
     // Fetch user data using GET request
-    fetch(`../../actions/edit_user_GET.php?id=${userId}`)
+    fetch(`../actions/edit_user_GET.php?id=${userId}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -29,7 +29,7 @@ function updateUser() {
     const name = document.getElementById('editUsername').value;
 
     // Send updated data using POST request
-    fetch('../../actions/edit_user_POST.php', {
+    fetch('../actions/edit_user_POST.php', {
         method: 'POST',  // POST method to send data
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',  // Form-urlencoded content type
@@ -65,7 +65,7 @@ function closeEditModal(){
 // DELETE FUNCTION
 function deleteUser(userId) {
     if (confirm("Are you sure you want to delete this user?")) {
-        fetch('../../actions/delete_user.php', {
+        fetch('../actions/delete_user.php', {
             method: 'DELETE',
             body: new URLSearchParams({ id: userId }) // Send the user ID in the body
         })
@@ -138,27 +138,3 @@ function addUser(event) {
     });
 }
 
-  
-
-
-// FORM SUBMISSION
-// function submitEditForm(event) {
-//   event.preventDefault();
-//   const formData = new FormData(document.getElementById('editUserForm'));
-
-//   fetch('../actions/edit_user.php', {
-//       method: 'POST',
-//       body: formData
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//       if (data.success) {
-//           alert(data.message);
-//           closeEditModal();
-//           location.reload(); // Reload to see updated data
-//       } else {
-//           alert('Error: ' + data.message);
-//       }
-//   })
-//   .catch(error => console.error('Error:', error));
-// }
