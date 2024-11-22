@@ -823,7 +823,7 @@ echo "<div class='user-info'>Welcome, " .
                     <br>
                   
                     <div class="form-btns">
-                        <button type="submit" id="submit-btn" class="submit">Submit</button>
+                        <button type="submit" id="btn-1" class="submit">Submit</button>
                     </div>
                 </form>
             </div>
