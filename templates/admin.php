@@ -367,19 +367,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </header>
 
-<?php
-require 'db_connect.php'; 
 
-if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
-    echo "<div class='error-message'><p>Please log in to access the system.</p>";
-    echo "<a href='login.php' class='login-button'>Login</a></div>";
-    exit;
-}
-echo "<div class='user-info'>Welcome, " .
-    htmlspecialchars($_SESSION['firstName'] . " " . $_SESSION['lastName']) .
-    " | Role: " . htmlspecialchars(str_replace("_", " ", ucwords($_SESSION['role']))) .
-    "</div>";
-?>
 
 <!-- START -->
 <?php if ($user_role == "trainee"): ?>
@@ -493,6 +481,19 @@ echo "<div class='user-info'>Welcome, " .
             </section>
 
 <?php else: ?>
+<?php
+require 'db_connect.php'; 
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
+    echo "<div class='error-message'><p>Please log in to access the system.</p>";
+    echo "<a href='login.php' class='login-button'>Login</a></div>";
+    exit;
+}
+echo "<div class='user-info'>Welcome, " .
+    htmlspecialchars($_SESSION['firstName'] . " " . $_SESSION['lastName']) .
+    " | Role: " . htmlspecialchars(str_replace("_", " ", ucwords($_SESSION['role']))) .
+    "</div>";
+?>
 
     <div class="tabs">
         <div class="tab active" onclick="showTab(0)">Profile</div>
