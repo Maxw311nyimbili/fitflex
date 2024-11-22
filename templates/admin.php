@@ -308,7 +308,7 @@ echo "<div class='user-info'>Welcome, " .
 
             if ($result->num_rows > 0){
                 echo "<table style='width: 70%;'>";
-                echo "<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Height</th><th>Weight</th><th>Role</th></tr>";
+                echo "<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Height</th><th>Weight</th><th>Role</th><th>Actions</th></tr>";
 
                 while ($row = $result->fetch_assoc()){
                     echo "<tr>";
@@ -319,7 +319,7 @@ echo "<div class='user-info'>Welcome, " .
                     echo "<td>" . $row['height'] . "</td>";
                     echo "<td>" . $row['weight'] . "</td>";
                     echo "<td>" . $row['role'] . "</td>";
-                    // echo "<td>" . <button onclick='viewUser({$row['user_id']})'>View</button> . <button onclick='editUser({$row['user_id']})'>Edit</button> . <button onclick='deleteUser({$row['user_id']})'>Delete</button> "</td>";
+                    echo "<td>" . <button onclick='viewUser({$row['user_id']})'>View</button> . <button onclick='editUser({$row['user_id']})'>Edit</button> . <button onclick='deleteUser({$row['user_id']})'>Delete</button> "</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
