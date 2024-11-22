@@ -4,6 +4,8 @@ require '../templates/db_connection.php';
 
 // Ensure the response is JSON
 header('Content-Type: application/json');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

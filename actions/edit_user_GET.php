@@ -2,6 +2,8 @@
 // Include the database connection file
 require '../templates/db_connection.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Ensure the response is JSON
 header('Content-Type: application/json');
 
