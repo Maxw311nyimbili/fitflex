@@ -12,8 +12,9 @@ $error = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
+    $password = htmlspecialchars(trim($_POST['password']));
+    $confirmPassword = htmlspecialchars(trim($_POST['confirmPassword']));
+    $role = htmlspecialchars(trim($_POST['role']));
 
     $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
     $weight = isset($_POST['weight']) ? htmlspecialchars(trim($_POST['weight'])) : null;
@@ -110,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="inner-container">
-            <form id="registerForm" method="POST" action="sign-up.php">
+            <form id="registerForm" method="POST" action="intermediate.php">
                 <?php if (!empty($error)): ?>
                     <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
