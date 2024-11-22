@@ -99,52 +99,59 @@ function closeUserModal() {
 }
 
 // Function to handle adding a user
-function addUser(event) {
-    event.preventDefault(); // Prevent form submission
+document.addEventListener("DOMContentLoaded", function() {
+    function addUser(event) {
+        event.preventDefault(); // Prevent form submission
 
-    const firstName = document.getElementById('newFirstName').value;
-    const lastName = document.getElementById('newLastName').value;
-    const email = document.getElementById('newEmail').value;
-    const password = document.getElementById('newPassword').value;  // Default password
-    const role = document.getElementById('newRole').value;
-    const height = document.getElementById('newHeight').value;
-    const weight = document.getElementById('newWeight').value;
+        const firstName = document.getElementById('newFirstName').value;
+        const lastName = document.getElementById('newLastName').value;
+        const email = document.getElementById('newEmail').value;
+        const password = document.getElementById('newPassword').value;  // Default password
+        const role = document.getElementById('newRole').value;
+        const height = document.getElementById('newHeight').value;  // Corrected ID
+        const weight = document.getElementById('newWeight').value;  // Corrected ID
 
-    // Validate inputs
-    if (!firstName || !lastName || !email || !role ||isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
-        alert('Please fill in all fields');
-        return;
+        // Validate inputs
+        if (!firstName || !lastName || !email || !role || !height || !weight) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Send the data to the server via POST request
+        fetch('../actions/add_user.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'firstName': firstName,
+                'lastName': lastName,
+                'email': email,
+                'password': password,
+                'role': role,
+                'height': height,
+                'weight': weight
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('User added successfully');
+                closeUserModal();  // Close the modal after success
+                location.reload();  // Optionally refresh the page to show the new user in the table
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while adding the user.');
+        });
     }
 
-    // Send the data to the server via POST request
-    fetch('../actions/add_user.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            'firstName': firstName,
-            'lastName': lastName,
-            'email': email,
-            'password': password,
-            'role': role,
-            'height': height,
-            'weight': weight
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('User added successfully');
-            closeUserModal();  // Close the modal after success
-            location.reload();  // Optionally refresh the page to show the new user in the table
-        } else {
-            alert('Error: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while adding the user.');
-    });
-}
-
+    // Attach the form submission handler
+    const addUserForm = document.getElementById('addUserForm');
+    if (addUserForm) {
+        addUserForm.onsubmit = addUser;
+    }
+});
