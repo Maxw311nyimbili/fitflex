@@ -13,19 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    // Retrieve session data
     $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
-    $password = isset($_SESSION['password']) ? $_SESSION['password'] : null; 
-    $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
-    $confirmPassword = isset($_SESSION['confirmPassword']) ? $_SESSION['confirmPassword'] : null;
+
 
     $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
     $weight = isset($_POST['weight']) ? htmlspecialchars(trim($_POST['weight'])) : null;
     $age = isset($_POST['age']) ? htmlspecialchars(trim($_POST['age'])) : null;
     $gender = isset($_POST['gender']) ? htmlspecialchars(trim($_POST['gender'])) : null;
 
-    if ($password !== $confirmPassword) {
-        $error = "Passwords do not match.";
-    } else {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Check if the email already exists
         $emailQuery = "SELECT email FROM usersflex WHERE email = ?";
@@ -66,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = "Failed to register user. Please try again.";
             }
         }
-    }
 }
 ?>
 
