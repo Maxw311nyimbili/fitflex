@@ -153,7 +153,7 @@ if ($stmt_starting) {
 
 // Fetch Current Weight
 $current_weight = 'N/A';
-$sql_current = "SELECT weight FROM progress WHERE user_id = ? ORDER BY date DESC LIMIT 1";
+$sql_current = "SELECT weight FROM progress WHERE user_id = ? ORDER BY created_at DESC LIMIT 1";
 $stmt_current = $conn->prepare($sql_current);
 if ($stmt_current) {
     $stmt_current->bind_param("i", $user_id);
@@ -392,7 +392,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="starting-weight">
                             <div class="weight-container">
-                                <p class="actual-weight"><?= htmlspecialchars($starting_weight); ?>Kg<span>lb</span></p>
+                                <p class="actual-weight"><?= htmlspecialchars($starting_weight); ?><span>Kg</span></p>
                             </div>
                             <div><p>Starting Weight</p></div>
                         </div>
