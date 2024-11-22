@@ -315,7 +315,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 100%;
             height: 20%;
             font-size: 2rem;
-            background-color:gray;
+            background-color: #4D8BA1;
             color: white;
             display: flex;
             justify-content: center; /* Center text horizontally */
