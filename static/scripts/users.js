@@ -1,29 +1,3 @@
-//VIEW FUNCTION
-function viewUser(userId) {
-    console.log(`${userId}`);
-  fetch(`../actions/view_user.php?id=${userId}`)
-      .then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              document.getElementById('modalUserDetails').innerHTML = `
-                  <p><strong>ID:</strong> ${data.user.user_id}</p>
-                  <p><strong>Name:</strong> ${data.user.name}</p>
-                  <p><strong>Email:</strong> ${data.user.email}</p>
-              `;
-              document.getElementById('userModal').style.display = 'block';
-          } else {
-              alert('Error: ' + data.message);
-          }
-      })
-      .catch(error => console.error('Error:', error));
-}
-
-function closeModal() {
-  document.getElementById('userModal').style.display = 'none';
-}
-
-
-
 // EDIT FUNCTION
 function editUser(userId) {
     // Fetch user data using GET request

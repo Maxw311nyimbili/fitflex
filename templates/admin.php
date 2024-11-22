@@ -7,7 +7,7 @@
     <title>FitFlex | Dashboard</title>
     <script src="../static/scripts/nav.js" defer></script>
     <script src="../static/scripts/dashboard.js" defer></script>
-    <script src="../static/scripts/user.js" defer></script>
+    <script src="../static/scripts/users.js" defer></script>
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
