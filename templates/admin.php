@@ -6,6 +6,7 @@
     <title>FitFlex | Dashboard</title>
     <script src="../static/scripts/nav.js" defer></script>
     <script src="../static/scripts/dashboard.js" defer></script>
+    <script src="../static/scripts/user.js" defer></script>
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
@@ -306,7 +307,7 @@ echo "<div class='user-info'>Welcome, " .
 
             if ($result->num_rows > 0){
                 echo "<table style='width: 70%;'>";
-                echo "<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Height</th><th>Weight</th><th>Role</th></tr>";
+                echo "<tr><th>User ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Height</th><th>Weight</th><th>Role</th><th>Actions</th></tr>";
 
                 while ($row = $result->fetch_assoc()){
                     echo "<tr>";
@@ -317,6 +318,7 @@ echo "<div class='user-info'>Welcome, " .
                     echo "<td>" . $row['height'] . "</td>";
                     echo "<td>" . $row['weight'] . "</td>";
                     echo "<td>" . $row['role'] . "</td>";
+                    echo "<td>" . <button onclick='viewUser({$row['user_id']})'>View</button> . <button onclick='editUser({$row['user_id']})'>Edit</button> . <button onclick='deleteUser({$row['user_id']})'>Delete</button> "</td>"
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -331,6 +333,77 @@ echo "<div class='user-info'>Welcome, " .
     ?>
 </div>
 
+
+<!-- MODALS -->
+         <!-- Add User Modal -->
+         <div id="addUserModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeUserModal()">&times;</span>
+                <h3>Add New User</h3>
+                <form id="addUserForm" onsubmit="addUser(event)">
+                    <label for="newFirstName">First Name:</label>
+                    <div><input type="text" id="newFirstName" name="newFirstName" required></div>
+                    
+
+                    <label for="newLastName">Last Name:</label>
+                    <div><input type="text" id="newLastName" name="newLastName" required></div>
+                    
+
+                    <label for="newEmail">Email:</label>
+                    <div><input type="email" id="newEmail" name="newEmail" required></div>
+                    
+
+                    <label for="newPassword">Password:</label>
+                    <div><input type="text" id="newPassword" name="newPassword" value="kitchen1234" readonly></div>
+                    
+
+                    <label for="newRole">Role:</label>
+                    <select id="newRole" name="newRole" required>
+                        <option value="1">Admin</option>
+                        <option value="2">Regular User</option>
+                    </select>
+                    <br>
+                    <br>
+
+                    <button type="submit" class="submit-btn">Add User</button>
+                </form>
+                <p id="addErrorMessage" style="color: red; display: none;">Please fill in all required fields with valid information.</p>
+            </div>
+        </div>
+
+
+        <!-- User Modal -->
+        <div id="userModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>User Details</h3>
+                <p id="modalUserDetails">Loading...</p>
+            </div>
+        </div>
+
+
+        <!-- Edit User Modal -->
+        <div id="editUserModal" style="display:none;" class="modal  ">
+          <div class="modal-content">
+          <span class="close" onclick="closeEditModal()">&times;</span>
+            <form id="editUserForm" method="POST">
+                    <label for="editUserId">User ID</label>
+                    <div><input type="text" id="editUserId" name="id" readonly></div>
+                    
+
+                    <label for="editUsername">Name</label>
+                    <div><input type="text" id="editUsername" name="name"></div>
+                    
+
+                    <label for="editEmail">Email</label>
+                    <div><input type="email" id="editEmail" name="email"></div> 
+                    <br>
+                    
+
+                    <button type="button" onclick="updateUser()">Update</button>
+                </form>
+          </div>
+        </div>
 
 </body>
 </html>
