@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +333,8 @@ echo "<div class='user-info'>Welcome, " .
     }
     ?>
 </div>
+
+
 
 
 <!-- MODALS -->
