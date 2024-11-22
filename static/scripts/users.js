@@ -8,7 +8,7 @@ function editUser(userId) {
                 document.getElementById('editUserId').value = data.user.user_id;
                 document.getElementById('editUsername').value = data.user.name;
                 document.getElementById('editEmail').value = data.user.email;
-                document.getElementById('newRole-1').value = data.user.email;
+                document.getElementById('newRole-1').value = data.user.role;
         
 
                 // Show the modal
