@@ -107,9 +107,11 @@ function addUser(event) {
     const email = document.getElementById('newEmail').value;
     const password = document.getElementById('newPassword').value;  // Default password
     const role = document.getElementById('newRole').value;
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
 
     // Validate inputs
-    if (!firstName || !lastName || !email || !role) {
+    if (!firstName || !lastName || !email || !role || !height || !weight) {
         alert('Please fill in all fields');
         return;
     }
@@ -125,7 +127,9 @@ function addUser(event) {
             'lastName': lastName,
             'email': email,
             'password': password,
-            'role': role
+            'role': role,
+            'height':height,
+            'weight':weight
         })
     })
     .then(response => response.json())
