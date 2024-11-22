@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+ob_clean();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = intval($_POST['id']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
