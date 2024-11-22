@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Prepare the SQL query to insert the new user
     $query = $conn->prepare("INSERT INTO usersflex (firstName, lastName, email, password, height, weight, role) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $query->bind_param("sssssiiis", $firstName, $lastName, $email, $hashedPassword, $height, $weight, $role);
+    $query->bind_param("ssssiis", $firstName, $lastName, $email, $hashedPassword, $height, $weight, $role);
 
     // Execute the query and check if it was successful
     if ($query->execute()) {
