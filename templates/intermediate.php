@@ -11,10 +11,11 @@ $error = "";
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $email = trim($_POST['email']);
-    $password = htmlspecialchars(trim($_POST['password']));
-    $confirmPassword = htmlspecialchars(trim($_POST['confirmPassword']));
-    $role = htmlspecialchars(trim($_POST['role']));
+   // Retrieve session data
+    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+    $password = isset($_SESSION['password']) ? $_SESSION['password'] : null; 
+    $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+    $confirmPassword = isset($_SESSION['confirmPassword']) ? $_SESSION['confirmPassword'] : null;
 
     $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
     $weight = isset($_POST['weight']) ? htmlspecialchars(trim($_POST['weight'])) : null;
