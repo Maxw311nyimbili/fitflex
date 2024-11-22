@@ -493,7 +493,7 @@ echo "<div class='user-info'>Welcome, " .
             </section>
 
 <?php else: ?>
-    <div class="tabs">
+    <div class="tabs user-info">
         <div class="tab active" onclick="showTab(0)">Profile</div>
         <div class="tab" onclick="showTab(1)">Gyms</div>
         <div class="tab" onclick="showTab(2)">Messages</div>
