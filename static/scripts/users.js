@@ -62,6 +62,9 @@ function updateUser() {
     });
 }
 
+function closeEditModal() {
+    document.getElementById('editUserModal').style.display = 'none';
+}
 
 
 
