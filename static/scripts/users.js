@@ -27,6 +27,7 @@ function updateUser() {
     const userId = document.getElementById('editUserId').value;
     const email = document.getElementById('editEmail').value;
     const name = document.getElementById('editUsername').value;
+    const role = document.getElementById('newRole').value;
 
     // Send updated data using POST request
     fetch('../actions/edit_user_POST.php', {
@@ -37,7 +38,8 @@ function updateUser() {
         body: new URLSearchParams({
             'id': userId,
             'email': email,
-            'name': name
+            'name': name,
+            'role': role
         })
     })
     .then(response => response.json())

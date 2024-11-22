@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Content-Type: application/json'); 
 
+ob_clean();
+
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
     parse_str(file_get_contents("php://input"), $_DELETE);
