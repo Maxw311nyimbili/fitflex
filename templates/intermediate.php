@@ -37,22 +37,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Insert user into Users table
             $query = "INSERT INTO usersflex (height, weight, age, gender) 
                       VALUES (?, ?, ?, ?)";
-            $stmt2 = $conn->prepare($query);
+            $stmt3 = $conn->prepare($query);
 
-            if (!$stmt2) {
+            if (!$stmt3) {
                 die("Preparation failed: " . $conn->error);
             }
 
-            $gymIdToInsert = ($role == 'trainee') ? $gymPreferred : null;
-
-            $stmt2->bind_param("iiis",
+            $stmt3->bind_param("iiis",
                 $height, 
                 $weight, 
                 $age,
                 $gender
             );
 
-            if($stmt2->execute()){ 
+            if($stmt3->execute()){ 
                 // Redirect on successful registration
                 header('Location: login.php');
                 exit();
