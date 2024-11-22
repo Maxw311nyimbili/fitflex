@@ -655,6 +655,7 @@ echo "<div class='user-info'>Welcome, " .
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
         
+        echo "<button id='addUserBtn' class='btn-1' onclick='openUserModal()'>Add User</button>";
 
         try{
 
@@ -683,7 +684,7 @@ echo "<div class='user-info'>Welcome, " .
                     }
                     echo "</table>";
 
-                    echo "<button id='addUserBtn' class='submit-btn' onclick='openUserModal()'>Add User</button>";
+                    
             
 
                   
