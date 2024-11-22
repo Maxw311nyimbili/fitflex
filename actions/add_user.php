@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require '../db/db_connection.php';
+require '../templates/db_connection.php';
 
 // Ensure the response is JSON
 header('Content-Type: application/json');
