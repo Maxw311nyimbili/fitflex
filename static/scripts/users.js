@@ -8,12 +8,8 @@ function editUser(userId) {
                 document.getElementById('editUserId').value = data.user.user_id;
                 document.getElementById('editUsername').value = data.user.name;
                 document.getElementById('editEmail').value = data.user.email;
-
-                // Dynamically set the role in the dropdown
-                const roleDropdown = document.getElementById('newRole-1');
-                roleDropdown.value = data.user.role; // Ensure `role` is correctly retrieved
-                
-                console.log('Role:', data.user.role);
+                document.getElementById('newRole-1').value = data.user.email;
+        
 
                 // Show the modal
                 document.getElementById('editUserModal').style.display = 'block';
