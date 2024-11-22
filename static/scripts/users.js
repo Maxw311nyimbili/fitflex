@@ -111,7 +111,7 @@ function addUser(event) {
     const weight = document.getElementById('weight').value;
 
     // Validate inputs
-    if (!firstName || !lastName || !email || !role || !height || !weight) {
+    if (!firstName || !lastName || !email || !role ||isNaN(height) || height <= 0 || isNaN(weight) || weight <= 0) {
         alert('Please fill in all fields');
         return;
     }

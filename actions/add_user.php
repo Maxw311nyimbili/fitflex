@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
-    $height = htmlspecialchars($_POST['height']);
-    $weight = htmlspecialchars($_POST['weight']);
+    $height = floatval($_POST['height']);
+    $weight = floatval($_POST['weight']);
     $role = htmlspecialchars($_POST['role']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL); 
     $password = 'fitflex1234';  // Default password
