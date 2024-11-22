@@ -1,49 +1,45 @@
 <?php
-// Include the database connection file
 require '../templates/db_connect.php';
-
-// Ensure the response is JSON
 header('Content-Type: application/json');
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-ob_clean();
-
-// Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize inputs
-    $userId = intval($_POST['id']);  // Ensure ID is an integer
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);  // Sanitize the email
+    $userId = intval($_POST['id']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $name = $_POST['name'];
-    $role = $_POST['role'];  // Corrected line
+    $role = $_POST['role'];
 
-    // Split the name into first and last names
-    $splitName = explode(" ", $name, 2); // Assumes "fname lname"
+    $splitName = explode(" ", $name, 2);
     $fname = $splitName[0];
-    $lname = isset($splitName[1]) ? $splitName[1] : '';  // If there's no last name, assign an empty string
+    $lname = isset($splitName[1]) ? $splitName[1] : '';
 
-    // Prepare the SQL query to update the user data
+    // Add debugging to check input values
+    error_log("UserID: $userId, Email: $email, Name: $name, Role: $role, Fname: $fname, Lname: $lname");
+
     $query = "UPDATE usersflex SET role = ?, email = ?, firstName = ?, lastName = ? WHERE user_id = ?";
 
-    // Prepare the statement
     if ($stmt = $conn->prepare($query)) {
-        // Bind the parameters
         $stmt->bind_param("ssssi", $role, $email, $fname, $lname, $userId);  
 
-        // Execute the statement
         if ($stmt->execute()) {
-            // Check if any rows were updated
+            // Get more detailed error information
             if ($stmt->affected_rows > 0) {
-                echo json_encode(['success' => true, 'message' => 'User updated successfully']);
+                echo json_encode(['success' => true, 'message' => 'User updated successfully', 'affected_rows' => $stmt->affected_rows]);
             } else {
-                echo json_encode(['success' => false, 'message' => 'No changes made or user not found']);
+                // Check for potential reasons no rows were updated
+                $error_info = $stmt->error;
+                echo json_encode([
+                    'success' => false, 
+                    'message' => 'No changes made or user not found', 
+                    'error_info' => $error_info,
+                    'user_id' => $userId
+                ]);
             }
         } else {
-            echo json_encode(['success' => false, 'message' => 'Error executing query']);
+            echo json_encode(['success' => false, 'message' => 'Error executing query', 'error' => $stmt->error]);
         }
 
-        // Close the statement
         $stmt->close();
     } else {
         echo json_encode(['success' => false, 'message' => 'Error preparing statement']);
