@@ -167,6 +167,8 @@ echo "<div class='user-info'>Welcome, " .
 <div class="tab-content active">
     <h2 style="text-align: center;">User Profile</h2>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     try {
         // Fetch user details based on session
         $userID = $_SESSION['user_id'];
@@ -196,6 +198,8 @@ echo "<div class='user-info'>Welcome, " .
 <div class="tab-content">
     <h2>Gyms</h2>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     try {
         if ($_SESSION['role'] == 'super_admin') {
             // Show all gyms for super admin
@@ -249,6 +253,8 @@ echo "<div class='user-info'>Welcome, " .
 <div class="tab-content">
     <h2>Messages</h2>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     try {
         // Message retrieval based on user role
         if ($_SESSION['role'] == 'super_admin') {
@@ -291,6 +297,8 @@ echo "<div class='user-info'>Welcome, " .
 <div class="tab-content">
     <h2>All Users</h2>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     try{
 
         if ($_SESSION['role'] == 'super_admin'){
