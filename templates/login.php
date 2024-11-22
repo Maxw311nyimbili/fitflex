@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['lastName'] = $user['lastName'];
                 $_SESSION['email'] = $user['email'];
 
-                header('Location: dashboard.php');
+                header('Location: admin.php');
                 exit();
             } else {
                 $error = "Invalid password.";
