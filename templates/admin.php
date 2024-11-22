@@ -340,7 +340,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!-- Conditional Login/Logout & Sign-up logic based on user authentication -->
                 <?php
-                session_start();
+            
 
                 if (isset($_SESSION['user_id'])) {
                     // If the user is logged in, show 'Dashboard' and 'Logout' instead of 'Login' and 'Sign-up'
@@ -359,11 +359,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </header>
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-
-include "db_connect.php";
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
     echo "<div class='error-message'><p>Please log in to access the system.</p>";
@@ -765,6 +761,83 @@ echo "<div class='user-info'>Welcome, " .
                 </form>
           </div>
         </div>
+
+
+    <!-- Regular User Modal -->
+      <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeEntryModal" onclick="closeEntryModal()">&times;</span>
+
+                <h2 class="modal-title">Add New Entry</h2>
+                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="dashboard.php">
+                    <!-- User Form Fields -->
+                    <div class="section-1">
+                        <div><input type="text" name="exercise-name" id="recipe-name" placeholder="Enter exercise name" required></div>
+                        <div><input type="date" name="date" id="date" required></div>
+                        <div><input type="number" name="sets" id="sets" placeholder="Number of Sets" required></div>
+                        <div><input type="number" name="reps" id="reps" placeholder="Number of Reps" required></div>
+                    </div>
+
+                    <div class="section-2">
+                        <div class="text-area-1">
+                            <div><textarea id="ingredient-list" name="ingredient-list" style="resize: none;" placeholder="Notes about the exercise" required></textarea></div>
+                        </div>
+
+                        <div class="inner-section">
+                            <div><input type="number" name="duration" id="duration" placeholder="Duration (minutes)" required></div>
+                            <div><input type="file" name="file" id="file" required></div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+                  
+                    <div class="form-btns">
+                        <button type="submit" id="submit-btn" class="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Weight Update Modal -->
+        <div id="myModal-1" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal"  onclick="closeWeightModal()">&times;</span> <!-- Close button -->
+
+                <h2 class="modal-title">Update Weight</h2>
+                <form id="create-recipe-form" enctype="multipart/form-data" method="POST" action="dashboard.php">
+                    <!-- User Form Fields -->
+                    <div class="section-1">
+                        <div><input type="number" name="current-weight" id="current-weight" placeholder="Current weight" required></div>
+                        <div><input type="date" name="date" id="date" required></div>
+                    </div>
+
+                    <div class="section-2">
+                        <div class="text-area-1">
+                            <div><textarea id="ingredient-list" name="feedback" style="resize: none;" placeholder="Comment on how workouts are going so far? (optional)"></textarea></div>
+                        </div>
+
+                    </div>
+
+                 
+                    <div class="form-btns">
+                        <button type="submit" id="submit-btn" class="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Round Button - Images Modal -->
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span onclick="closeImageModal()" class="close">&times;</span>
+                <h2>Progress Pictures</h2>
+                <div id="imageContainer"></div> <!-- This will hold the images dynamically -->
+            </div>
+        </div>    
 
 </body>
 </html>
