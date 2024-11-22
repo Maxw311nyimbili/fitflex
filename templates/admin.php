@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Execute the statement
         if ($stmt->execute()) {
-            header('Location: dashboard.php');
+            header('Location: admin.php');
             // echo "Exercise entry added successfully.";
         } else {
             // echo "Failed to add exercise entry.";
@@ -221,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Execute the statement
         if ($stmt->execute()) {
             // echo "Weight updated successfully.";
-            header('Location: dashboard.php');
+            header('Location: admin.php');
         } else {
             echo "Failed to update weight.";
         }

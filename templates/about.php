@@ -41,7 +41,7 @@
                         session_start();
                         if (isset($_SESSION['user_id'])) {
                             // If the user is logged in, show 'Dashboard' and 'Logout' instead of 'Login' and 'Sign-up'
-                            echo '<li><a href="./dashboard.php" class="menu-item">Dashboard</a></li>';
+                            echo '<li><a href="./admin.php" class="menu-item">Admin Dashboard</a></li>';
                             echo '<li><a href="./logout.php" class="menu-item">Logout</a></li>';
                         } else {
                             // If the user is not logged in, show 'Login' and 'Sign-up'
