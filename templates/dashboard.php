@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connect.php'; // Assuming you have a 'db_connect.php' file for MySQL connection
+require 'db_connect.php'; 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
