@@ -301,6 +301,94 @@ textarea:focus{
     height: 7vw;
 }
 
+
+/* SUPER-ADMIN DESIGNS */
+.user-info{
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.center{
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.tabs {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.tab {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+.tab:hover {
+    background-color: #ddd;
+}
+.tab.active {
+    background-color: white;
+    border-bottom: 1px solid white;
+}
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.tab-content.active {
+    display: block;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.error-message {
+    color: red;
+    text-align: center;
+}
+.login-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.user-info {
+    margin-bottom: 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    width: 100%;
+    height: 20%;
+    font-size: 2rem;
+    background-color:#366d818c;
+    color: white;
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center;    /* Center text vertically */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* END OF SUPER-ADMIN DESIGNS */
+
+
 @media screen and (max-width: 1280px){
     .gym-name{
         font-weight: bold;
@@ -363,7 +451,6 @@ textarea:focus{
         padding-left:15px;
         color: white;
     }
-    
     a{
         text-decoration: none;
     }
@@ -446,7 +533,7 @@ textarea:focus{
         margin-left: 15px;
     }
     input{
-    width: 350px;
+    width: 300px;
     padding: 10px;
     margin-bottom: 10px;
     border:#366d818c solid 1.5px;
@@ -511,3 +598,5 @@ textarea:focus{
     margin-top:200px;
 }   
 }
+
+
