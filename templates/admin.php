@@ -226,7 +226,7 @@ echo "<div class='user-info'>Welcome, " .
             }
         } elseif ($_SESSION['role'] == 'trainer') {
             // Show user's gym
-            $stmt = $conn->prepare("SELECT g.* FROM Gym g 
+            $stmt = $conn->prepare("SELECT g.* FROM gym g 
                                     JOIN usersflex u ON g.gym_id = u.gym_id 
                                     WHERE u.user_id = ?");
             $stmt->bind_param("i", $userID);
@@ -259,10 +259,10 @@ echo "<div class='user-info'>Welcome, " .
     try {
         // Message retrieval based on user role
         if ($_SESSION['role'] == 'super_admin') {
-            $sql = "SELECT * FROM Messages ORDER BY timestamp DESC LIMIT 50";
+            $sql = "SELECT * FROM messages ORDER BY timestamp DESC LIMIT 50";
             $result = $conn->query($sql);
         } elseif ($_SESSION['role'] == 'trainee') {
-            $stmt = $conn->prepare("SELECT * FROM Messages 
+            $stmt = $conn->prepare("SELECT * FROM messages 
                                     WHERE sender_id = ? OR receiver_id = ? 
                                     ORDER BY timestamp DESC LIMIT 50");
             $stmt->bind_param("ii", $_SESSION['user_id'], $_SESSION['user_id']);
