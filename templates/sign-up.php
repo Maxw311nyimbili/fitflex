@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Email already registered.";
         } else {
             // Insert user into Users table
-            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id, ) 
+            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id) 
                       VALUES (?, ?, ?, ?, ?, ?)";
             $stmt2 = $conn->prepare($query);
 
