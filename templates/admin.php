@@ -206,7 +206,7 @@ echo "<div class='user-info'>Welcome, " .
     try {
         if ($_SESSION['role'] == 'super_admin') {
             // Show all gyms for super admin
-            $sql = "SELECT * FROM Gym";
+            $sql = "SELECT * FROM gym";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
