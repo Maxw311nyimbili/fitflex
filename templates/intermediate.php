@@ -34,21 +34,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result->num_rows > 0) {
             $error = "Email already registered.";
         } else {
-            // Insert user into Users table
-            $query = "INSERT INTO usersflex (height, weight, age, gender) 
-                      VALUES (?, ?, ?, ?)";
-            $stmt3 = $conn->prepare($query);
+          // Update the user's record in the database
+                $query = "UPDATE usersflex 
+                SET height = ?, weight = ?, age = ?, gender = ? 
+                WHERE email = ?";
 
-            if (!$stmt3) {
+                $stmt3 = $conn->prepare($query);
+
+                if (!$stmt3) {
                 die("Preparation failed: " . $conn->error);
-            }
+                }
 
-            $stmt3->bind_param("iiis",
+                // Bind the parameters (data types: i for integers, s for strings)
+                $stmt3->bind_param("iiiss", 
                 $height, 
                 $weight, 
-                $age,
-                $gender
-            );
+                $age, 
+                $gender, 
+                $email
+                );
+
+                // Execute the statement
+                if (!$stmt->execute()) {
+                die("Execution failed: " . $stmt3->error);
+                }
+
 
             if($stmt3->execute()){ 
                 // Redirect on successful registration
