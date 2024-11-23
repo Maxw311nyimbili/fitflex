@@ -58,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = "Failed to register user. Please try again.";
             }
         }
+        $stmt->close();
+        $stmt3->close();
 }
 ?>
 
