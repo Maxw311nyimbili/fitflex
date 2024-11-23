@@ -8,6 +8,9 @@ include 'db_connect.php';
 
 $error = "";
 
+
+$email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+
 if (!isset($_SESSION['email'])) {
     die("User not logged in. Email not found in session.");
 }
@@ -15,7 +18,7 @@ if (!isset($_SESSION['email'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    // Retrieve session data
-    $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+
 
 
     $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
