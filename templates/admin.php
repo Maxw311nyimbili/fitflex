@@ -248,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         .user-info{
             font-family: Arial, sans-serif;
-            max-width: 1000px;
+            max-width: 100px;
             margin: 0 auto;
             padding: 20px;
             justify-content: center;
@@ -284,8 +284,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .tab-content.active {
             display: block;
         }
-        table {
-            width: 100%;
+        /* table {
+            width: 80%;
             border-collapse: collapse;
             margin-top: 15px;
         }
@@ -293,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-        }
+        } */
         .error-message {
             color: red;
             text-align: center;
