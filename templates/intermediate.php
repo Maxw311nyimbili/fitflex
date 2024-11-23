@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
           // Update the user's record in the database
                 $query = "UPDATE usersflex 
-                SET height = ?, weight = ?, age = ?, gender = ? 
+                SET height = ?, weight = ?, age = ?
                 WHERE email = ?";
 
                 $stmt3 = $conn->prepare($query);
@@ -46,11 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 // Bind the parameters (data types: i for integers, s for strings)
-                $stmt3->bind_param("iiiss", 
+                $stmt3->bind_param("iiis", 
                 $height, 
                 $weight, 
                 $age, 
-                $gender, 
                 $email
                 );
 
