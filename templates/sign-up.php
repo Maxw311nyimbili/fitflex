@@ -65,6 +65,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             );
 
             if ($stmt2->execute()) {
+                // Set session variables for the registered user
+                $_SESSION['email'] = $email;
+                $_SESSION['firstName'] = $firstName;
+                $_SESSION['lastName'] = $lastName;
+                $_SESSION['role'] = $role;
+
                 // If trainer, insert gym details
                 if ($role === 'trainer' && $gymName && $gymContact && $gymLocation && $servicesOffered) {
                     $gymQuery = "INSERT INTO gym (gym_name, gym_location, services_offered, gym_contact) VALUES (?, ?, ?, ?)";
