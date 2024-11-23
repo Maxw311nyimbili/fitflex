@@ -8,6 +8,9 @@ include 'db_connect.php';
 
 $error = "";
 
+if (!isset($_SESSION['email'])) {
+    die("User not logged in. Email not found in session.");
+}
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -34,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result->num_rows > 0) {
             $error = "Email already registered.";
         } else {
+            var_dump($height, $weight, $age, $email);
           // Update the user's record in the database
                 $query = "UPDATE usersflex 
                 SET height = ?, weight = ?, age = ?

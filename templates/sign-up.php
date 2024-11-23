@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = htmlspecialchars(trim($_POST['password']));
     $confirmPassword = htmlspecialchars(trim($_POST['confirmPassword']));
     $role = htmlspecialchars(trim($_POST['role']));
+    $gender = htmlspecialchars(trim($_POST['gender']));
 
 
     // For trainers, capture gym details
@@ -44,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Email already registered.";
         } else {
             // Insert user into Users table
-            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gym_id) 
-                      VALUES (?, ?, ?, ?, ?, ?)";
+            $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gender, gym_id) 
+                      VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt2 = $conn->prepare($query);
 
             if (!$stmt2) {
@@ -54,12 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $gymIdToInsert = ($role == 'trainee') ? $gymPreferred : null;
 
-            $stmt2->bind_param("sssssi",
+            $stmt2->bind_param("ssssssi",
                 $firstName, 
                 $lastName, 
                 $email, 
                 $hashedPassword, 
                 $role, 
+                $gender,
                 $gymIdToInsert, 
             );
 
