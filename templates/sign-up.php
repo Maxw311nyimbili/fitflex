@@ -67,14 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // If trainer, insert gym details
                 if ($role === 'trainer' && $gymName && $gymContact && $gymLocation && $servicesOffered) {
                     $gymQuery = "INSERT INTO gym (gym_name, gym_location, services_offered, gym_contact) VALUES (?, ?, ?, ?)";
-                    $stmt3 = $conn->prepare($gymQuery);
+                    $stmt2 = $conn->prepare($gymQuery);
 
-                    if (!$stmt3) {
+                    if (!$stmt2) {
                         die("Preparation failed: " . $conn->error);
                     }
 
-                    $stmt3->bind_param('ssss', $gymName, $gymLocation, $servicesOffered, $gymContact);
-                    if (!$stmt3->execute()) {
+                    $stmt2->bind_param('ssss', $gymName, $gymLocation, $servicesOffered, $gymContact);
+                    if (!$stmt2->execute()) {
                         die("Gym insertion failed: " . $conn->error);
                     }
                 }
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     $stmt->close();
-    $stmt3->close();
+    $stmt2->close();
 }
 ?>
 
