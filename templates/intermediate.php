@@ -54,11 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $email
                 );
 
-                // Execute the statement
-                if (!$stmt->execute()) {
-                die("Execution failed: " . $stmt3->error);
-                }
-
 
             if($stmt3->execute()){ 
                 // Redirect on successful registration
