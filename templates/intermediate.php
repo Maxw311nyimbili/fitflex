@@ -8,71 +8,41 @@ include 'db_connect.php';
 
 $error = "";
 
-
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : null;
 
 if (!isset($_SESSION['email'])) {
     die("User not logged in. Email not found in session.");
 }
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-   // Retrieve session data
-
-
-
     $height = isset($_POST['height']) ? htmlspecialchars(trim($_POST['height'])) : null;
     $weight = isset($_POST['weight']) ? htmlspecialchars(trim($_POST['weight'])) : null;
     $age = isset($_POST['age']) ? htmlspecialchars(trim($_POST['age'])) : null;
-    $gender = isset($_POST['gender']) ? htmlspecialchars(trim($_POST['gender'])) : null;
 
+    // Update the user's record in the database
+    $query = "UPDATE usersflex SET height = ?, weight = ?, age = ? WHERE email = ?";
+    $stmt = $conn->prepare($query);
 
-        // Check if the email already exists
-        $emailQuery = "SELECT email FROM usersflex WHERE email = ?";
-        $stmt = $conn->prepare($emailQuery);
-        if (!$stmt) {
-            die("Preparation failed: " . $conn->error);
-        }
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    if (!$stmt) {
+        die("Preparation failed: " . $conn->error);
+    }
 
-        if ($result->num_rows > 0) {
-            $error = "Email already registered.";
-        } else {
-            var_dump($height, $weight, $age, $email);
-          // Update the user's record in the database
-                $query = "UPDATE usersflex 
-                SET height = ?, weight = ?, age = ?
-                WHERE email = ?";
+    // Bind the parameters (data types: i for integers, s for strings)
+    $stmt->bind_param("iiis", $height, $weight, $age, $email);
 
-                $stmt3 = $conn->prepare($query);
+    if ($stmt->execute()) {
+        // Redirect on successful update
+        header('Location: login.php');
+        exit();
+    } else {
+        $error = "Failed to update user details. Please try again.";
+    }
 
-                if (!$stmt3) {
-                die("Preparation failed: " . $conn->error);
-                }
-
-                // Bind the parameters (data types: i for integers, s for strings)
-                $stmt3->bind_param("iiis", 
-                $height, 
-                $weight, 
-                $age, 
-                $email
-                );
-
-
-            if($stmt3->execute()){ 
-                // Redirect on successful registration
-                header('Location: login.php');
-                exit();
-            } else {
-                $error = "Failed to register user. Please try again.";
-            }
-        }
-        $stmt->close();
-        $stmt3->close();
+    $stmt->close();
 }
 ?>
+
 
 
 

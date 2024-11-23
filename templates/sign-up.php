@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars(trim($_POST['email']));
     $password = htmlspecialchars(trim($_POST['password']));
     $confirmPassword = htmlspecialchars(trim($_POST['confirmPassword']));
-    $role = htmlspecialchars(trim($_POST['role']));
+    $role = htmlspecialchars(trim($_POST['role'])); // Ensure role is dynamic (trainee/trainer)
     $gender = htmlspecialchars(trim($_POST['gender']));
-
+    $gymIdToInsert = ($role === 'trainee') ? htmlspecialchars(trim($_POST['gymPreferred'])) : null;
 
     // For trainers, capture gym details
     $gymName = isset($_POST['gymName']) ? htmlspecialchars(trim($_POST['gymName'])) : null;
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result->num_rows > 0) {
             $error = "Email already registered.";
         } else {
-            // Insert user into Users table
+            // Insert user into usersflex table
             $query = "INSERT INTO usersflex (firstName, lastName, email, password, role, gender, gym_id) 
                       VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt2 = $conn->prepare($query);
@@ -53,30 +53,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 die("Preparation failed: " . $conn->error);
             }
 
-            $gymIdToInsert = ($role == 'trainee') ? $gymPreferred : null;
-
-            $stmt2->bind_param("ssssssi",
-                $firstName, 
-                $lastName, 
-                $email, 
-                $hashedPassword, 
-                $role, 
+            $stmt2->bind_param(
+                "ssssssi",
+                $firstName,
+                $lastName,
+                $email,
+                $hashedPassword,
+                $role,
                 $gender,
-                $gymIdToInsert, 
+                $gymIdToInsert
             );
 
             if ($stmt2->execute()) {
                 // If trainer, insert gym details
                 if ($role === 'trainer' && $gymName && $gymContact && $gymLocation && $servicesOffered) {
                     $gymQuery = "INSERT INTO gym (gym_name, gym_location, services_offered, gym_contact) VALUES (?, ?, ?, ?)";
-                    $stmt2 = $conn->prepare($gymQuery);
+                    $stmt3 = $conn->prepare($gymQuery);
 
-                    if (!$stmt2) {
+                    if (!$stmt3) {
                         die("Preparation failed: " . $conn->error);
                     }
 
-                    $stmt2->bind_param('ssss', $gymName, $gymLocation, $servicesOffered, $gymContact);
-                    if (!$stmt2->execute()) {
+                    $stmt3->bind_param('ssss', $gymName, $gymLocation, $servicesOffered, $gymContact);
+                    if (!$stmt3->execute()) {
                         die("Gym insertion failed: " . $conn->error);
                     }
                 }
@@ -91,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
 
 
 
