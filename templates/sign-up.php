@@ -87,8 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
-    $stmt->close();
-    $stmt2->close();
 }
 ?>
 
