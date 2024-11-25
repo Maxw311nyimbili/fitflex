@@ -105,15 +105,13 @@ input{
 .checkbox-container p{
     margin-top: 1px;
 }
-.forgot-section input p{
-    font-size: 14px;
-}
 
-.forgot-password a{
+.forgot-section .forgot-password a{
     font-size: 14px;
     text-decoration: none;
     color: gray;
 }
+
 .forgot-password{
     align-items: center;
 }
