@@ -140,19 +140,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="inner-container">
-            <form id="registerForm" method="POST" action="sign-up.php">
+            <form id="registerForm" method="POST" action="sign-up.php" data-parsley-validate>
                 <?php if (!empty($error)): ?>
                     <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
-                <div><input type="text" name="firstName" placeholder="First Name" required class="input_area"></div>
-                <div><input type="text" name="lastName" placeholder="Last Name" required class="input_area"></div>
-                <div><input type="email" name="email" placeholder="Email" required class="input_area"></div>
-                <div><input type="password" name="password" placeholder="Password" required class="input_area"></div>
+                <div>
+                    <input type="text" 
+                            name="firstName" 
+                            placeholder="First Name" 
+                            required 
+                            class="input_area"
+                            data-parsley-required-message="First name is required"
+                            data-parsley-minlength="2"
+                            data-parsley-pattern="/^[A-Za-z]+$/"
+                            data-parsley-pattern-message="First name should contain only letters">
+                </div>
+
+                <div>
+                    <input type="text" 
+                            name="lastName" 
+                            placeholder="Last Name" 
+                            required 
+                            class="input_area"
+                            data-parsley-required-message="Last name is required"
+                            data-parsley-minlength="2"
+                            data-parsley-pattern="/^[A-Za-z]+$/"
+                            data-parsley-pattern-message="Last name should contain only letters">
+                </div>
+
+                <div>
+                    <input type="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            required 
+                            class="input_area"
+                            data-parsley-type="email"
+                            data-parsley-required-message="Email is required"
+                            data-parsley-type-message="Please enter a valid email address">
+                </div>
+
+                <div>
+                    <input type="password" 
+                            name="password" 
+                            placeholder="Password" 
+                            required 
+                            class="input_area"
+                            data-parsley-required-message="Password is required"
+                            data-parsley-minlength="8"
+                            data-parsley-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/"
+                            data-parsley-pattern-message="Password must be at least 8 characters and include uppercase, lowercase, and number">
+                </div>
                 <div><input type="password" name="confirmPassword" placeholder="Confirm Password" required class="input_area"></div>
                 
                 <!-- Gender Selection -->
                 <div>
-                    <select name="gender" required class='input_area'>
+                    <select name="gender" 
+                            required 
+                            class='input_area'
+                            data-parsley-required-message="Please select a gender">
                         <option value="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -160,9 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="select-role">
-                        <!-- <input type="radio" id="gymOwner" name="role" value="gym_owner" required>
-                        <label for="gymOwner" style="margin-right: 20px;">Gym Owner</label> -->
-                        <input type="radio" id="trainee" name="role" value="trainee" required>
+                        <input type="radio" id="trainee" name="role" value="trainee" required data-parsley-required-message="Please select a role">
                         <label for="trainee">Select preferred gym</label><br><br>
                     </div>
 
@@ -181,9 +224,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
             </form>
         </div>
-
-
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" defer></script>
     
   <!-- Trainer Modal -->
   <div id='trainerModal' class='modal'>

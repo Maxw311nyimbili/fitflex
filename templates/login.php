@@ -90,14 +90,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="inner-container">
                 <!-- Form for login -->
-                <form id="loginForm" method="POST" action="login.php">
+                <form id="loginForm" method="POST" action="login.php" data-parsley-validate>
                     <?php if (!empty($error)): ?>
                         <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
                     <?php endif; ?>
 
-                    <div><input id="email" class="input_area" name="email" type="email" placeholder="Enter your email" required></div>
+                    <div>
+                        <input id="email" 
+                            class="input_area" 
+                            name="email" 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            required data-parseley-type="email" 
+                            data-parsely-required-message= "Email is required"  
+                            data-parsley-type-message="Please enter a valid email address">
+                    </div>
                     <div id="emailError" class="error-message"></div> <!-- Added error message div -->
-                    <div><input id="password" class="input_area" name="password" type="password" placeholder="Enter your password" required></div>
+
+                    <div>
+                        <input id="password" 
+                            class="input_area" 
+                            name="password" 
+                            type="password" 
+                            placeholder="Enter your password" 
+                            required
+                            data-parsley-minlength="8"
+                            data-parsley-required-message="Password is required"
+                            data-parsley-minlength-message="Password must be at least 8 characters long">
+                    </div>
                     <div id="passwordError" class="error-message"></div> <!-- Added error message div -->
 
                     <div class="btn-wrapper">
@@ -109,6 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" defer></script>
 
 </body>
 </html>
