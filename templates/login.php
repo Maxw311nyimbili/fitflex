@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </script>
 
     <style>
-        /* ul.parsley-errors-list {
+        ul.parsley-errors-list {
             color: red; 
             list-style: none; 
             margin: 5px 0; 
@@ -76,12 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         input.parsley-error {
             border-color: red; 
             box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
-        } */
-        data-parsley-required-message{
-            color: red; 
-            list-style: none; 
-            margin: 5px 0; 
-            padding: 0; 
         }
     </style>
 
@@ -134,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             data-parsely-required-message= "Email is required"  
                             data-parsley-type-message="Please enter a valid email address">
                     </div>
+                    <div class="error-message"></div>
 
                     <div>
                         <input id="password" 
@@ -146,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             data-parsley-required-message="Password is required"
                             data-parsley-minlength-message="Password must be at least 8 characters long">
                     </div>
-                    
+                    <div class="error-message"></div>
 
                     <div class="btn-wrapper">
                         <input class="submit_btn" type="submit" value="Log in">
