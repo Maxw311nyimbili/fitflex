@@ -17,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get the email from the form input
     $emailAddress = trim($_POST['email'] ?? '');
 
+    $_SESSION['reset_email'] = $emailAddress;
+
     if (empty($emailAddress)) {
         $errorMessage = "Please enter your email.";
     } else {
