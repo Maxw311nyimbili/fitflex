@@ -58,6 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="../static/scripts/nav.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" defer></script>
+    <!-- Initializing parsely Manually -->
+    <script>
+        $(document).ready(function () {
+            $('#loginForm').parsley();
+        }); 
+    </script>
 
     <title>FitFlex | Login Page</title>
 </head>
