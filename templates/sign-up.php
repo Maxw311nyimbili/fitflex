@@ -109,6 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <link rel="stylesheet" href="../static/css/sign-up.css">
   <script src="../static/scripts/sign-up.js" defer></script>
   <script src="../static/scripts/nav.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" defer></script>
+
   <title>FitFlex | Sign-up Page</title>
 </head>
 <body>
@@ -272,6 +275,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <script src="../static/scripts/sign-up.js"></script> <!-- Ensure this script is linked -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+
 </body>
 </html>
