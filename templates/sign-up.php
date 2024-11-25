@@ -119,6 +119,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }); 
   </script>
 
+    <style>
+        ul.parsley-errors-list {
+            color: red; 
+            list-style: none; 
+            margin: 5px 0; 
+            padding: 0; 
+        }
+
+        input.parsley-error {
+            border-color: red; 
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); 
+        }
+    </style>
+
   <title>FitFlex | Sign-up Page</title>
 </head>
 <body>
