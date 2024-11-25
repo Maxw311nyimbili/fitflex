@@ -12,14 +12,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Token is required.");
     }
 
-    try {
-        // Query to check if the token exists and is associated with an email
-        $stmt = $pdo->prepare("SELECT email FROM password_reset_tokens WHERE token = :token");
-        $stmt->bindParam(':token', $token, PDO::PARAM_STR);
+    // Prepare the query using mysqli
+    $query = "SELECT u.email 
+          FROM token t 
+          JOIN usersflex u ON t.userID = u.user_id 
+          WHERE t.token = ?";
+    if ($stmt = $conn->prepare($query)) { // $conn is the mysqli connection object from db_connect.php
+        // Bind the token parameter
+        $stmt->bind_param('s', $token);
+
+        // Execute the query
         $stmt->execute();
 
-        // Fetch the result
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Get the result
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
 
         if ($user) {
             // Token is valid; redirect to reset password page
@@ -29,11 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Token is invalid
             echo "<p style='color: red; text-align: center;'>Invalid token. Please try again.</p>";
         }
-    } catch (PDOException $e) {
-        die("Error occurred: " . $e->getMessage());
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        die("Error preparing the query: " . $conn->error);
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
