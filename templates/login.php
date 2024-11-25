@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             list-style: none; 
             margin: 5px 0; 
             padding: 0; 
+            font-size:16px;
         }
 
         input.parsley-error {

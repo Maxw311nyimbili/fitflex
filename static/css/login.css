@@ -109,10 +109,13 @@ input{
     font-size: 14px;
 }
 
-.forgot-section a{
+.forgot-password a{
     font-size: 14px;
     text-decoration: none;
     color: gray;
+}
+.forgot-password{
+    align-items: center;
 }
 
 .btn-wrapper{
