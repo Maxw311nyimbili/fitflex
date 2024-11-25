@@ -103,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="btn-wrapper">
                         <input class="submit_btn" type="submit" value="Log in">
                         <div class="create"><p>Do not have an account?</p><a href="./sign-up.php">Sign-up</a></div>
+                        <div class="forgot-password"><a href="./forgetPassword.php">Forgot Password?</a></div>
                     </div>
                 </form>
             </div>
