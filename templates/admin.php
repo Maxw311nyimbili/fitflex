@@ -726,10 +726,12 @@ echo "<div class='user-info'>Welcome, " .
                     <div><input type="text" id="newPassword" name="newPassword" value="fitflex1234" readonly></div>
 
                     <label for="newHeight">Height (cm):</label>
-                    <input type="number" id="newHeight" name="height" required min="0" class="input_area">
+                    <div><input type="number" id="newHeight" name="height" required min="0" class="input_area"></div>
+                    
 
                     <label for="newWeight">Weight (kg):</label>
-                    <input type="number" id="newWeight" name="weight" required min="0" class="input_area">
+                    <div><input type="number" id="newWeight" name="weight" required min="0" class="input_area"></div>
+                    
 
                     
 
