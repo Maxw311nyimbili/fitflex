@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             class="input_area"
                             data-parsley-required-message="First name is required"
                             data-parsley-minlength="2"
-                            data-parsley-pattern="/^[A-Za-z]+$/"
+                            data-parsley-pattern="^[A-Za-z]+$"
                             data-parsley-pattern-message="First name should contain only letters">
                 </div>
 
@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             class="input_area"
                             data-parsley-required-message="Last name is required"
                             data-parsley-minlength="2"
-                            data-parsley-pattern="/^[A-Za-z]+$/"
+                            data-parsley-pattern="^[A-Za-z]+$"
                             data-parsley-pattern-message="Last name should contain only letters">
                 </div>
 
@@ -217,8 +217,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
 
-
-                
                 <div><input type="password" name="confirmPassword" placeholder="Confirm Password" required class="input_area"></div>
                 
                 <!-- Gender Selection -->
