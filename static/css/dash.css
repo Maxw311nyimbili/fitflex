@@ -599,10 +599,10 @@ textarea:focus{
     margin-top:200px;
 }   
     /* Table Styling */
-table {
+table { 
     margin-top: 20px;
     margin-left: 100px;
-    width: 70%;
+    width: 50%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
@@ -855,7 +855,7 @@ textarea:focus{
 table {
     margin-top: 20px;
     margin-left: 100px;
-    width: 60%;
+    width:40%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
