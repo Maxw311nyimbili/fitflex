@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     class="input_area"
                     data-parsley-required-message="Password is required"
                     data-parsley-minlength="8"
-                    data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                    data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d].{8,}$"
                     data-parsley-pattern-message="Password must be at least 8 characters and include uppercase, lowercase, and number">
                 </div>
 
