@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../static/css/nav.css">
     <link rel="stylesheet" href="../static/css/dash.css">
     <style>
-        .user-info{
+        /* .user-info{
             font-family: Arial, sans-serif;
             max-width: 100px;
             margin: 0 auto;
@@ -254,7 +254,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
+        } */
         .tabs {
             display: flex;
             cursor: pointer;
