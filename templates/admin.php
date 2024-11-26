@@ -634,10 +634,10 @@ echo "<div class='user-info'>Welcome, " .
                     SELECT 
                         messages.message_text, 
                         messages.timestamp, 
-                        Usersflex.fname, 
-                        Usersflex.lname 
+                        usersflex.fname, 
+                        usersflex.lname 
                     FROM messages 
-                    JOIN Usersflex ON messages.user_id = Usersflex.user_id 
+                    JOIN usersflex ON messages.user_id = usersflex.user_id 
                     ORDER BY messages.timestamp DESC 
                     LIMIT 50";
                 $result = $conn->query($sql);
@@ -646,10 +646,10 @@ echo "<div class='user-info'>Welcome, " .
                     SELECT 
                         messages.message_text, 
                         messages.timestamp, 
-                        Usersflex.fname, 
-                        Usersflex.lname 
+                        usersflex.fname, 
+                        usersflex.lname 
                     FROM messages 
-                    JOIN Usersflex ON messages.user_id = Usersflex.user_id 
+                    JOIN usersflex ON messages.user_id = usersflex.user_id 
                     WHERE messages.user_id = ? 
                     ORDER BY messages.timestamp DESC 
                     LIMIT 50");
