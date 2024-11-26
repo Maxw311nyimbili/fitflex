@@ -205,16 +205,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div>
-                    <input type="password" 
-                            name="password" 
-                            placeholder="Password" 
-                            required 
-                            class="input_area"
-                            data-parsley-required-message="Password is required"
-                            data-parsley-minlength="8"
-                            data-parsley-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/"
-                            data-parsley-pattern-message="Password must be at least 8 characters and include uppercase, lowercase, and number">
+                <input type="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    required 
+                    class="input_area"
+                    data-parsley-required-message="Password is required"
+                    data-parsley-minlength="8"
+                    data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                    data-parsley-pattern-message="Password must be at least 8 characters and include uppercase, lowercase, and number">
                 </div>
+
+
+
+                
                 <div><input type="password" name="confirmPassword" placeholder="Confirm Password" required class="input_area"></div>
                 
                 <!-- Gender Selection -->
