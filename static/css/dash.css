@@ -152,7 +152,7 @@ a{
 table {
     margin-top: 20px;
     margin-left: 150px;
-    width: 70%;
+    width: 60%;
     border-collapse: collapse;
     margin-bottom: 20px;
   }
@@ -346,11 +346,6 @@ textarea:focus{
 .tab-content.active {
     display: block;
 }
-/* table {
-    width: 60%;
-    border-collapse: collapse;
-    margin-top: 15px;
-} */
 table, th, td {
     border: 1px solid #ddd;
     padding: 8px;
