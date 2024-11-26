@@ -663,7 +663,7 @@ echo "<div class='user-info'>Welcome, " .
         
             // Display the result in a table
             if ($result && $result->num_rows > 0) {
-                echo "<table>";
+                echo "<table style='width='50%''>";
                 echo "<tr><th>First Name</th><th>Last Name</th><th>Message</th><th>Timestamp</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
