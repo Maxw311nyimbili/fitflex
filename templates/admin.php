@@ -177,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $notes = trim($_POST['ingredient-list'] ?? '');
     $currentWeight = isset($_POST['current-weight']) ? (float) $_POST['current-weight'] : null;
     $feedback = trim($_POST['feedback'] ?? '');
+    $messages = trim($_POST['feedbackmessage'] ?? '');
 
     if (!empty($exerciseName)) {
         // Insert into `Workouts` table
@@ -220,8 +221,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Execute the statement
         if ($stmt->execute()) {
-            // echo "Weight updated successfully.";
-            header('Location: admin.php');
+            $stmt1 = $conn -> prepare("
+            INSERT INTO messages (user_id, message_text) VALUES (?, ?)");
+
+            if ($stmt1 === false) {
+                die("Error preparing statement: " . $conn->error);
+            }
+    
+            // Bind parameters
+            $stmt1->bind_param("is", $userId, $messages);
+
+            if($stmt1->execute()){
+                // echo "Weight updated successfully.";
+                header('Location: admin.php');
+            }else{
+                echo "Failed to send message";
+            }
+
+         $stmt1->close();
         } else {
             echo "Failed to update weight.";
         }
@@ -615,10 +632,8 @@ echo "<div class='user-info'>Welcome, " .
                 $sql = "SELECT * FROM messages ORDER BY timestamp DESC LIMIT 50";
                 $result = $conn->query($sql);
             } elseif ($_SESSION['role'] == 'trainee') {
-                $stmt = $conn->prepare("SELECT * FROM messages 
-                                        WHERE sender_id = ? OR receiver_id = ? 
-                                        ORDER BY timestamp DESC LIMIT 50");
-                $stmt->bind_param("ii", $_SESSION['user_id'], $_SESSION['user_id']);
+                $stmt = $conn->prepare("SELECT * FROM messages WHERE user_id = ? ORDER BY timestamp DESC LIMIT 50");
+                $stmt->bind_param("i", $_SESSION['user_id']);
                 $stmt->execute();
                 $result = $stmt->get_result();
             }
@@ -756,7 +771,7 @@ echo "<div class='user-info'>Welcome, " .
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h3>User Details</h3>
-                <p id="modalUserDetails">Loading...</p>
+                <p id="modalUserDetails"></p>
             </div>
         </div>
 
@@ -846,7 +861,7 @@ echo "<div class='user-info'>Welcome, " .
 
                     <div class="section-2">
                         <div class="text-area-1">
-                            <div><textarea id="ingredient-list" name="feedback" style="resize: none;" placeholder="Comment on how workouts are going so far? (optional)"></textarea></div>
+                            <div><textarea id="ingredient-list" name="feedbackmessage" style="resize: none;" placeholder="Comment on how workouts are going so far? (optional)"></textarea></div>
                         </div>
 
                     </div>
