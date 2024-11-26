@@ -634,8 +634,8 @@ echo "<div class='user-info'>Welcome, " .
                     SELECT 
                         messages.message_text, 
                         messages.timestamp, 
-                        usersflex.fname, 
-                        usersflex.lname 
+                        usersflex.firstName, 
+                        usersflex.lastName 
                     FROM messages 
                     JOIN usersflex ON messages.user_id = usersflex.user_id 
                     ORDER BY messages.timestamp DESC 
@@ -646,8 +646,8 @@ echo "<div class='user-info'>Welcome, " .
                     SELECT 
                         messages.message_text, 
                         messages.timestamp, 
-                        usersflex.fname, 
-                        usersflex.lname 
+                        usersflex.firstName, 
+                        usersflex.lastName 
                     FROM messages 
                     JOIN usersflex ON messages.user_id = usersflex.user_id 
                     WHERE messages.user_id = ? 
@@ -667,8 +667,8 @@ echo "<div class='user-info'>Welcome, " .
                 echo "<tr><th>First Name</th><th>Last Name</th><th>Message</th><th>Timestamp</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row['fname']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['lname']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['firstName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['lastName']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['message_text']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
                     echo "</tr>";
