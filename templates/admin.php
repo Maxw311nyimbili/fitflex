@@ -626,29 +626,49 @@ echo "<div class='user-info'>Welcome, " .
         <?php
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
+        
         try {
             // Message retrieval based on user role
             if ($_SESSION['role'] == 'super_admin') {
-                $sql = "SELECT * FROM messages ORDER BY timestamp DESC LIMIT 50";
+                $sql = "
+                    SELECT 
+                        messages.message_text, 
+                        messages.timestamp, 
+                        Users.fname, 
+                        Users.lname 
+                    FROM messages 
+                    JOIN Users ON messages.user_id = Users.id 
+                    ORDER BY messages.timestamp DESC 
+                    LIMIT 50";
                 $result = $conn->query($sql);
             } elseif ($_SESSION['role'] == 'trainee') {
-                $stmt = $conn->prepare("SELECT * FROM messages WHERE user_id = ? ORDER BY timestamp DESC LIMIT 50");
+                $stmt = $conn->prepare("
+                    SELECT 
+                        messages.message_text, 
+                        messages.timestamp, 
+                        Users.fname, 
+                        Users.lname 
+                    FROM messages 
+                    JOIN Users ON messages.user_id = Users.id 
+                    WHERE messages.user_id = ? 
+                    ORDER BY messages.timestamp DESC 
+                    LIMIT 50");
                 $stmt->bind_param("i", $_SESSION['user_id']);
                 $stmt->execute();
                 $result = $stmt->get_result();
-            }
-            else {
+            } else {
                 echo "<p>You do not have permission to view messages.</p>";
                 $result = false;
             }
-
+        
+            // Display the result in a table
             if ($result && $result->num_rows > 0) {
                 echo "<table>";
-                echo "<tr><th>Sender</th><th>Receiver</th><th>Message</th><th>Timestamp</th></tr>";
+                echo "<tr><th>First Name</th><th>Last Name</th><th>Message</th><th>Timestamp</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row['sender_id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['receiver_id']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['fname']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['lname']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['message_text']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
                     echo "</tr>";
