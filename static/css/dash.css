@@ -347,7 +347,7 @@ textarea:focus{
     display: block;
 }
 table {
-    width: 100%;
+    width: 60%;
     border-collapse: collapse;
     margin-top: 15px;
 }
